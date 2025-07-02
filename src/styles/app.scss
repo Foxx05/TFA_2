@@ -44,13 +44,6 @@ p{
     grid-column:1/-1 ;
 }
 
-.p--nav{
-    margin-left: 16px;
-    padding: 0;
-    margin-bottom: 0;
-    font-weight: 700;
-}
-
 .menu--hidden{
     top: -100px;
 }
@@ -130,16 +123,25 @@ p{
 .section{
     color: #fafafa;
 }
-.menu a{
+.menu--li{
     color: #fafafa;
     text-decoration: none;
-    margin-bottom: 50px;
     cursor: pointer;
     transition: all .3s;
 }
+
 .menu a:hover{
     color: #56767e;
 }
+
+.p--nav{
+    margin-left: 16px;
+    padding: 0;
+    margin-bottom: 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .banniere{
     height: 100vh;
     justify-content: center;
@@ -222,6 +224,7 @@ h2{
 
 a{
     text-decoration: none;
+    transition: all .3s;
 }
 
 .ligne-haut{
@@ -287,7 +290,7 @@ footer{
 .img-res{
     border-radius: 0;
     cursor: pointer;
-    transition: all .1s;
+    transition: all .3s;
     height: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
     width: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
 }
@@ -485,7 +488,6 @@ span{
     text-decoration: none;
     color:#fafafa;
     background-color: #42585D;
-    transition: all 0.3s;
     padding: 5px;
 }
 
@@ -587,17 +589,16 @@ span{
 /* footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer*/
 .foot_cs{
     background-color: rgba(24, 24, 24, 0.5);
-    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
     padding-top: clamp(0.75rem, 0.5069rem + 1.1111vw, 1.375rem);
 }
 
-.foot__cs{
+ .foot__cs{
     display: grid; 
     column-gap: 16px;
     background: linear-gradient(0.25turn, #56767e, #927b4d);
     height: 300px;
     margin-top: 25px;
-    clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
+   clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
 }
 
 .footer--liste__cs{
@@ -767,13 +768,6 @@ span{
         margin-bottom: 15px;
         font-size: 20px;
     }
-
-    /*.img--heaj{
-        grid-column: 1/2;
-        grid-row: 1/-1;
-        margin-top: 22px;
-        border-radius: 0;
-    }*/
 
     .foot{
         align-content: center;
@@ -1088,9 +1082,6 @@ span{
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
 
-    .p--col2col6{
-        grid-column: 2/6;
-    }
     .img--contexte{
         grid-column: 6/-1;
         grid-row: 2/5;
@@ -1176,7 +1167,6 @@ span{
     .foot__cs{
         height: 350px;
         margin: 0;
-        clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
     }
 
     .footer--liste__cs{
