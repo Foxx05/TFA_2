@@ -44,10 +44,6 @@ p{
     grid-column:1/-1 ;
 }
 
-.menu--hidden{
-    top: -100px;
-}
-
 .menu{
     position: fixed;
     height: 62px;
@@ -57,6 +53,11 @@ p{
     align-items: center;
     z-index: 20;
 }
+
+.menu--hidden{
+    top: -100px;
+}
+
 .menu__btn{
     background-color: #fafafa;
     border: none;
@@ -111,7 +112,6 @@ p{
     text-decoration: none;
     font-weight: bold;
     color: black;
-    transition: color 0.2s ease;
 }
 .menu__link:hover{
     color: white;
