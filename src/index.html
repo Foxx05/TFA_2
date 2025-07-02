@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+  
+<head>
+  <title>Portfolio - Théo Colpaert</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Welcome, you'll follow my journey through the web's world.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="Portfolio — Théo Colpaert">
+  <meta property="og:title" content="Portfolio — Théo Colpaert">
+  <meta property="og:description" content="Welcome, you'll follow my journey through the web's world.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://theocolpaert.be/projets/tfa">
+  <meta property="og:image" content="https://theocolpaert.be/projets/tfa/assets/images/img_port/PresImg.webp">
+  <meta property="og:image:width" content="1800">
+  <meta property="og:image:height" content="945">
+
+  <link rel="icon" type="image/x-icon" href="https://theocolpaert.be/projets/tfa/assets/images/img_port/favicon.ico">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link  rel="stylesheet" href="styles/app.css">
+  <script src="scripts/app.js" defer></script>
+  <script type="module" src="scripts/three-fond.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+  <nav class="menu">
+    <p class="p--nav">Théo Colpaert</p>
+    <button class="menu__btn"></button>
+    <div class="blur-overlay"></div>
+      <ul class="menu__liste">
+        <li class="menu--li"><a href="#about">About</a></li>
+        <li class="menu--li"><a href="#projects">Projects</a></li>
+        <li class="menu--li"><a href="#contact">Contact</a></li>
+      </ul>
+  </nav>
+
+  <header class="banniere gridcol">
+    <div class="banniere__text">
+      <h1 class="title title--big">Hello&nbsp;There</h1>
+      <p class="p--center__big">I'm Théo Colpaert, a belgian student in Web&nbsp;design</p>
+    </div>
+  </header>
+
+  <div class="scroll-down js-scroll-down">
+      <svg width="80" height="80" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="20" stroke="#fafafa" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="125" stroke-dashoffset="100" class="scroll-circle"></circle>
+          <path d="M25 32 l-6 -6 h12 l-6 6" fill="#fafafa"/>
+      </svg>
+  </div>
+
+  <main>
+    <section id="about" class="section section--presentation gridcol">
+      <p class="p--center">I'm currently studying Computer Graphics at Haute École Albert Jacquard. With a background in automation and a passion for UI/UX, I enjoy working on a wide range of digital projects, from frontend development to design thinking. I focus on attention to details, always meet deadlines, and love experimenting with new tools and ideas. I'm also a licensed drone pilot and I like to bring my personal touch to every project I take on. Feel free to reach out if you’d like to collaborate or just&nbsp;say&nbsp;hi!</p>
+      <img class="img--center" src="assets/images/img_port/PresImg.webp" srcset="assets/images/img_port/@2x/PresImg@2x.webp 2x" alt="Image en noir et blanc de moi dans le cockpit d'un avion léger, dans un hangar de l'aérodrome de Temploux.">
+    </section>
+
+    <section id="projects" class="section section--projects gridcol">
+
+      <h2 class="title title--center">My projects</h2>
+      <div class="ligne-haut">
+        <div class="div--prux">
+          <img src="assets/images/img_port/RuxImg.webp" srcset="assets/images/img_port/@2x/RuxImg@2x.webp 2x" alt="Image origanale en nuances de gris de la salle à réaménager. On voit que quelques tables et tables et chaises sont déjà présentes dans la salle.">
+          <h3>Rethinking-UX Case Study</h3>
+          <p class="p--presproj">This case study traces the progress of a school project aimed at redesigning the layout of a room to improve the student experience, fostering a more functional rest&nbsp;environment.</p>
+          <a class="btn--plus" href="csRux.html">Read the case study</a>
+        </div>
+
+        <div class="div--dataplay">
+          <img src="assets/images/img_port/DataImg.webp" srcset="assets/images/img_port/@2x/DataImg@2x.webp 2x" alt="Image en nuances de gris montrant 2 illustrations d'avions vues de haut.">
+          <h3>Dataplay Case Study</h3>
+          <p class="p--presproj">This case study traces the progress of a school project designed to teach us how to retrieve data from a JSON file and display it in the right place on a&nbsp;web&nbsp;page.</p>
+          <a class="btn--plus" href="csDataplay.html">Read the case study</a>
+        </div>
+      </div>
+
+      <div class="ligne-bas">
+        <div class="div--cs_designf">
+          <img src="assets/images/img_port/PFcsimg.webp" srcset="assets/images/img_port/@2x/PFcsimg@2x.webp 2x" alt="Mock up d'un ordinateur, posé sur une dalle en béton devant des rideaux, affichant le code de mon projet design fiction et le rendu du site (split screen).">
+          <h3>Design Fiction Case Study</h3>
+          <p class="p--presproj">This case study traces the progress of my Design Fiction project which is part of my year-end work. It documents the steps taken to imagine and prototype future scenarios involving drones.</p>
+          <a class="btn--plus" href="csDesignF.html">Read the case study</a>
+        </div>
+
+        <div class="div--designf">
+          <img src="assets/images/img_port/PFimg.webp" srcset="assets/images/img_port/@2x/PFimg@2x.webp 2x" alt="Image en nuances de gris montrant 2 illustrations de drones oiseaux en vol.">
+          <h3>Design Fiction</h3>
+          <p class="p--presproj">This school project follows a "what if" approach. What if a current technology evolved soon? I choose drones as my topic. I explore their possible future&nbsp;missions.</p>
+          <a class="btn--plus" href="designFiction.html">Consult the project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer id="contact" class="gridfoot gridcol">
+    <div class="div--footer">
+      <h4 class="title--h4">Contact&nbsp;me</h4>
+      <p class="p--contact"><a class="mailto" href="mailto:theocolpaert8@gmail.com">theocolpaert8@gmail.com</a></p>
+      <div class="socials">
+        <a href="https://www.instagram.com/theo.colpaert/" target="_blank"><img class="img-res" src="assets/images/img_port/insta.svg" alt="Visitez ma page Instagram"></a>
+        <a href="https://www.facebook.com/theo.colpaert" target="_blank"><img class="img-res" src="assets/images/img_port/fb.svg" alt="Visitez ma page Facebook"></a>
+        <a href="https://github.com/Foxx05" target="_blank"><img class="img-res" src="assets/images/img_port/git.svg" alt="Visitez mon GitHub"></a>
+      </div>
+    </div>
+
+    <p class="p--copy">&#169;Théo Colpaert — 2025</p>
+    <a class="p--credits" href="credits.html">Credits</a>
+  </footer>
+</body>
+</html>

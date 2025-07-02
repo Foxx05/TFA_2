@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What if TFA</title>
+    <meta name="description" content="Mon projet de fin d'anée (2ème année en Bachelier Web-Transmedia à la HEAJ).">
+    <meta property="og:site_name" content="What if — Théo Colpaert">
+    <meta property="og:title" content="What if">
+    <meta property="og:description" content="Mon projet de fin d'anée (2ème année en Bachelier Web-Transmedia à la HEAJ).">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theocolpaert.be/projets/tfa/designFiction.html">
+    <meta property="og:image" content="https://theocolpaert.be/projets/tfa/assets/images/img_port/PFimg.webp">
+    <meta property="og:image:width" content="1800">
+    <meta property="og:image:height" content="945">
+
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="scripts/app.js" defer></script>
+    <script type="module" src="scripts/three-bird.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+    <link rel="icon" type="image/x-icon" href="https://theocolpaert.be/projets/tfa/assets/images/img_df/favicon.ico">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="body_tfa">
+  <header>
+
+    <section class="section section--header">
+        <div class="div--title_img">
+            <h1 class="title_tfa title--big_tfa">SkyGuard</h1> 
+            <h2 class=" title_tfa title--italic">Mission</h2>
+        </div>
+        <div class="div--img_header">
+            <img class="img--header" src="assets/images/img_df/header_photo.webp" srcset="assets/images/img_df/@2x/header_photo@2x.webp 2x" alt="">
+        </div>
+    </section>
+</header>
+
+<main>
+    
+    <section class="section gridcol gridpc animate">
+        <h2 class="title_tfa title--col2">Une mission…</h2>
+        <div id="container3D" style="display: block; width: 100%; height: 100%; position: relative;"></div>
+        <p class="p p--col1col5__tfa"><span>En 2035, pour la première fois dans l’histoire, lors de la mission de recherche “SkyGuard” d’une personne disparue, des drones imitant des oiseaux ont étés déployés.</span> La zone de recherche étant vaste, il a fallu faire appel à des centaines de drones qui ont travaillé en essaim. Chaque drone communiquait simultanément ses données collectées et sa position aux autres drones et au centre de&nbsp;contrôle.</p>
+        <p class="p p--col1col5__tfa"><span>Ces drones présentaient un avantage considérable : ils ne perturbaient pas la faune locale.</span> Grâce à leur système de propulsion biomimétique, basé sur le battement d’ailes, ils imitaient le vol des oiseaux avec une grande fidélité. Ce mode de déplacement, non seulement discret, mais aussi presque totalement silencieux une fois en vol, permettait de ne pas perturber la faune qu’ils&nbsp;survolaient.</p>
+        <p class="p p--col1col5__tfa">Dans le cadre de cette intervention en zone vallonnée protégée, cette caractéristique était primordiale. En effet, cet espace abritait une biodiversité fragile, souvent sensible à la moindre intrusion humaine ou technologique. Il était donc essentiel, pour les équipes de secours mobilisées à la recherche de la personne disparue, de concilier efficacité opérationnelle et respect de l’environnement. <span>L’utilisation de ces drones innovants a ainsi permis de mener des recherches approfondies sans provoquer de stress ou de désorganisation au sein des écosystèmes&nbsp;locaux.</span></p>
+        <img class="img--falcon" src="assets/images/img_df/faucon.webp" srcset="assets/images/img_df/@2x/faucon@2x.webp 2x" alt="Rendu 3D d'un drone oiseau.">
+    </section>
+
+    <section class="section gridcol gridpc animate">
+        <h2 class="title_tfa title--col2">De la «tech» jamais&nbsp;vue</h2>
+        <p class=" p p--col3col6__tfa"><span>Les drones oiseaux peuvent embarquer les mêmes capteurs que des drones classiques (caméras thermiques, à vision nocturnes, infra-rouge…), mais ont une autonomie augmentée.</span> En effet, les batteries des drones se rechargent dans les courants ascendants. La mission se déroulant dans une zone relativement montagneuse, les vents ascendants sont très présents. Grâce à ce système révolutionnaire, les drones volent presque en permanence, ce qui a permis des recherches plus efficaces. De leur côté, les secouristes au sol recevaient les retours vidéos des drones en temps réel, ce qui permettait de mieux orienter leurs&nbsp;recherches.</p>
+        <img class="img--tech" src="assets/images/img_df/vents.webp" srcset="assets/images/img_df/@2x/vents@2x.webp 2x" alt="Schéma (en 2D) représenatant la physique derrière le phénomène naturel. On peut voir une montagne sur le coté droit. Le sol autour de la montagne est plat. Dans le ciel, on peut voir des lignes blanches représentant le vent (allant de gauche à droite).">
+    </section>
+
+    <section class="section gridcol gridpc animate">
+        <h2 class="title_tfa title--col1">La faiblesse d’un capteur...</h2>
+        <p class="p p--col1col5__capt"><span>Des ralentissements ont été constatés au cours de la mission.</span> Les capteurs thermiques embarqués sur les drones se sont révélés insuffisamment performants pour distinguer clairement l’empreinte thermique d’une biche de celle d’un être humain. <span>Cette limitation technologique a entraîné plusieurs erreurs d’interprétation, orientant les équipes de sauvetage vers de fausses pistes.</span> Ces détours inutiles ont considérablement ralenti les opérations, entraînant une perte de temps précieuse dans un contexte où chaque minute&nbsp;comptait.</p>
+        <img class="img--capt" src="assets/images/img_df/img_th.webp" srcset="assets/images/img_df/@2x/img_th@2x.webp 2x" alt="Rendu 3D d'un capteur thermique que j'ai réalisé sur Blender.">
+
+    </section>
+
+    <section class=" section section--full animate">
+        <img class="img--full" src="assets/images/img_df/bird_fond.webp" srcset="assets/images/img_df/@2x/bird_fond@2x.webp 2x" alt="">
+    </section>
+
+
+<section class="section gridcol gridpc animate">
+    <h2 class="title_tfa title--col2">Des sentiments...</h2>
+    <p class="p p--col4col8"><span>Après plusieurs jours de recherches intensives, les habitants du village, situé au pied de la montagne où se déroulaient les opérations, commençaient à perdre patience.</span> Lassés de voir les drones survoler constamment leurs maisons, ils exprimaient de plus en plus leur mécontentement. Certains allaient même jusqu’à penser que le gouvernement utilisait ces engins non pas uniquement pour rechercher la personne disparue, mais aussi pour les surveiller discrètement. <span>La méfiance grandissait et l’inquiétude s’installait peu à peu dans le quotidien des&nbsp;villageois.</span></p>
+    
+    <p class="p p--col4col8">Dans le village, tous les habitants n’avaient pas les mêmes réactions face au survol des drones : alors que certains essayaient de les nourrir - évidemment sans succès, d’autres pensaient simplement qu’il s’agissait d’une nouvelle espèce et que des biologistes n’allaient pas tarder à débarquer pour&nbsp;les&nbsp;étudier.</p>
+
+    <p class="p p--col4col8"><span>La personne recherchée a vu, pendant des heures, des dizaines d'oiseaux tourner autour d’elle.</span> Ne sachant pas que des drones oiseaux avaient été déployés par les équipes de secouristes, elle se mit à paniquer. Elle pensait sans doute que sa dernière heure était arrivée et que, tels des vautours, les drones n’étaient pas là par hasard. Son premier réflexe a été de s’éloigner le plus possible des groupes&nbsp;d’oiseaux.</p>
+
+    <p class="p p--col4col8">J’ai retrouvé trois témoins que j’ai pu interviewer.</p>
+
+    <a class="btn--temoins p--col4col8" href="pageTemoin.html">Lire les témoignages</a>
+
+    <img class="img--sent" src="assets/images/img_df/village.webp" srcset="assets/images/img_df/@2x/village@2x.webp 2x" alt="Rendu 3D d'un village survolé par 2 drones oiseaux que j'ai réalisé sur Blender.">
+    
+</section>
+<section class="section gridcol gridpc animate">
+    <h2 class="title_tfa title--col3">Et le futur ?</h2>
+    <p class="p p--col2col6">Dans le futur, il serait possible d’adapter cette technologie à d’autres milieux nécessitant des approches différentes, comme les zones côtières, où les courants ascendants sont absents ou très faibles. Dans ce contexte, les chercheurs devront peut-être s’éloigner de l’univers des animaux volants pour s’inspirer d’autres espèces adaptées à ces environnements : pourquoi ne pas imaginer, par exemple, des crabes robotiques conçus pour accomplir des missions spécifiques dans ces&nbsp;milieux&nbsp;?</p>
+</section> 
+</main>
+
+<footer class="gridcol foot__cs">
+
+    <ul class="footer--liste__cs">
+        <li class="footer--el__cs">Projet Design Fiction</li>
+        <li class="footer--el__cs">&#169;Théo Colpaert — 2025</li>
+        <li class="footer--el__cs"><a class="btn--foot" href="index.html">Retour au Portfolio</a></li>
+    </ul>
+               
+    <button class="backToTop__cs">
+        <svg viewBox="0 0 24 24">
+            <path d="M5 15l7-7 7 7"/>
+        </svg>
+    </button>
+
+</footer>
+
+</body>
+</html>

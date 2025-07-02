@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Fiction case study</title>
+    <meta name="description" content="Dans le cadre de mon projet de fin d'année, j'ai dû réfléchir à l'application d'une technlogie actuelle dans un futur proche.">
+    <meta property="og:site_name" content="Design Fiction case study">
+    <meta property="og:title" content="Design Fiction case study">
+    <meta property="og:description" content="Dans le cadre de mon projet de fin d'année, j'ai dû réfléchir à l'application d'une technlogie actuelle dans un futur proche.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theocolpaert.be/projets/tfa/csDesignF.html">
+    <meta property="og:image" content="https://theocolpaert.be/projets/tfa/assets/images/img_port/PFcsimg.webp">
+    <meta property="og:image:width" content="1800">
+    <meta property="og:image:height" content="945">
+
+    <link  rel="stylesheet" href="styles/app.css">
+    <script src="scripts/app.js" defer></script>
+    <script type="module" src="scripts/three-fond.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="https://theocolpaert.be/projets/tfa/assets/images/img_df/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="menu">
+        <p class="p--nav">Théo Colpaert</p>
+        <button class="menu__btn"></button>
+        <ul class="menu__liste">
+            <li class="menu--li"><a href="index.html">Portfolio</a></li>
+            <li class="menu--li"><a href="csRux.html">PRUX Case Study</a></li>
+            <li class="menu--li"><a href="csDataplay.html">Case Study Dataplay</a></li>
+            <li class="menu--li"><a href="designFiction.html">Projet Design Fiction</a></li>
+        </ul>
+    </nav>
+        
+    <header class="banniere gridcol">
+        <div class="banniere__text">
+            <h1 class="title title--big">Design Fiction Case&nbsp;Study</h1>
+            <p class="p--center__big">Une technologie actuelle dans le futur</p>
+        </div>
+    </header>
+
+    <div class="scroll-down js-scroll-down">
+        <svg width="80" height="80" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="#fafafa" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="125" stroke-dashoffset="100" class="scroll-circle"></circle>
+            <path d="M25 32 l-6 -6 h12 l-6 6" fill="#fafafa"/>
+        </svg>
+    </div>
+
+    <main>
+        <nav class="nav-vertical">
+            <a href="#section-1">1.&nbsp;Contexte</a>
+            <a href="#section-2">2.&nbsp;Concept</a>
+            <a href="#section-3">3.&nbsp;Les étapes</a>
+            <a href="#section-3">4.&nbsp;La direction artistique</a>
+            <a href="#section-4">5.&nbsp;Les outils</a>
+            <a href="#section-5">6.&nbsp;Conclusion</a>
+        </nav>
+
+        <section id="section-1" class="section gridcol">
+            <h2 class="title__cs title--col3">1. Le Contexte</h2>
+            <p class="p p--col3col7"><span>Dans le cadre de mon TFA, j’ai dû réfléchir à la conception d’un site autour d’une technologie actuelle appliquée dans un futur proche.</span> L’objectif : réfléchir à une innovation plausible, mais aussi anticiper ses impacts qu’ils soient positifs ou négatifs. Je me suis intéressé aux drones, en particulier à leurs possibilités d’évolution dans des milieux naturels protégés. J’ai imaginé une histoire autour de drones biomimétiques en forme d’oiseaux. Dans le contexte que vous allez découvrir, les drones auront un rôle positif, en effet, ils vont servir à aider à rechercher une personne portée disparue.</p>
+        </section>
+
+        <section id="section-2" class="section gridcol">
+            <h2 class="title__cs title--col2">2. Le concept</h2>
+            <p class="p--col2col6__csdata"><span>SkyGuard met en scène une mission de secours fictive, menée en 2035, dans une région vallonnée (voire montagneuse par endroits) protégée.</span> Une personne a disparu, et les secours déploient des drones silencieux, autonomes, volants en essaim, conçus&nbsp;pour&nbsp;:</p>
+            <div class="problemes-container">
+                <ul>
+                    <li>reproduire le vol naturel des oiseaux via des ailes&nbsp;battantes;</li>
+                    <li>se recharger en vol grâce aux courants ascendants;</li>
+                    <li>transmettre des données en temps réel aux équipes au sol.</li>
+                </ul>
+            </div>
+            <p class="p--col2col6">Le récit permet de critiquer la technologie autant que de la valoriser : les capteurs thermiques sont imparfaits, les habitants du village sont méfiants, et même la personne recherchée prend peur en voyant ces «oiseaux» tourner&nbsp;autour&nbsp;d’elle.</p>
+            <img class="img--falcon__cs" src="assets/images/img_df/faucon.webp" srcset="assets/images/img_df/@2x/faucon@2x.webp 2x" alt="Rendu 3D d'un drone oiseau.">
+        </section>
+
+        <section id="section-3" class="section gridcol">
+            <h2 class="title__cs title--col3">3. Les étapes</h2>
+            <p class="p p--col3col7"><span>Avant de me lancer dans la phase de développement, j’ai d’abord conçu un premier «plan» Figma.</span> Cet outil m’a permis de structurer mes idées et de mieux visualiser le positionnement des différents éléments sur la page. Une fois cette première version terminée, je l’ai retravaillée en remplaçant les images issues d’internet par mes propres illustrations et rendus 3D.</p>
+        </section>
+
+        <section id="section-4" class="section gridcol">
+            <h2 class="title__cs title--col3">4. Direction artistique & visuelle</h2>
+            <p class="p p--col4col8">Pour aider tout un chacun à visualiser le drone et ses technologies embarquées, j’ai réalisé plusieurs illustrations fixes ainsi qu’un modèle 3D interactif. Ce dernier, accessible sur le site, permet de vous rendre compte de la forme du drone. En effet, vous pouvez le faire tourner dans presque toutes les&nbsp;directions.</p>
+            <p class="p p--col4col8"><span>Ces visuels offrent une immersion rapide et intuitive dans l’univers de SkyGuard, en rendant tangible une technologie encore fictive mais&nbsp;réaliste.</span></p>
+
+            <img class="img--col2col4" src="assets/images/img_df_cs/birdcode.webp" srcset="assets/images/img_df_cs/@2x/birdcode@2x.webp 2x" alt="Mock-up montrant un ordinateur posé sur une dalle en béton. L'écran est séparé en deux parties égales (splitscreen), à gauche le rendu de l'oiseu animé avec ThreeJS, et à droite le code.">
+        </section>
+
+        <section id="section-5" class="section gridcol">
+            <h2 class="title__cs title--col2">5. Les outils</h2>
+            <p class="p--col2col6__csdata">Voici les différents outils que j'ai utilisés pour l'aspect graphique sur le site :</p>
+            <div class="problemes-container">
+                <ul>
+                    <li><span>Blender</span> – pour la modélisation du drone et du&nbsp;village;</li>
+                    <li><span>Three.js</span> – pour l’intégration du&nbsp;drone;</li>
+                    <li><span>Figma</span> – pour réaliser les maquettes du&nbsp;site;</li>
+                    <li><span>Photoshop et Illustrator</span> – pour réaliser les&nbsp;illustrations.</li>
+                </ul>
+            </div>
+            <img class="img--col6col1" src="assets/images/img_df_cs/boite_outil.webp" srcset="assets/images/img_df_cs/@2x/boite_outil@2x.webp 2x" alt="Rendu 3D d'une boite à outils (j'ai utilisé Blender) remplie des différents logos des logiciels que j'ai utilisé.">
+        </section> 
+
+
+        <section id="section-6" class="section gridcol">
+            <h2 class="title__cs title--col3">6. Conclusion</h2>
+            <p class="p--col2col6">SkyGuard est un projet qui mêle réflexion technologique, sensibilité écologique et narration immersive. En imaginant une innovation plausible, j’ai cherché à questionner autant qu’à proposer. Ce travail m’a permis d’explorer des compétences variées — de la modélisation 3D à la conception d’interface — tout en développant une vision critique sur l’impact des technologies futures.</p>
+        </section>
+        
+</main>
+  <footer id="contact" class="gridfoot gridcol foot_cs">
+    <div class="div--footer">
+      <h4 class="title--h4">Contact&nbsp;me</h4>
+      <p class="p--contact"><a class="mailto" href="mailto:theocolpaert8@gmail.com">theocolpaert8@gmail.com</a></p>
+      <div class="socials">
+        <a href="https://www.instagram.com/theo.colpaert/" target="_blank"><img class="img-res" src="assets/images/img_port/insta.svg" alt="Visitez ma page Instagram"></a>
+        <a href="https://www.facebook.com/theo.colpaert" target="_blank"><img class="img-res" src="assets/images/img_port/fb.svg" alt="Visitez ma page Facebook"></a>
+        <a href="https://github.com/Foxx05" target="_blank"><img class="img-res" src="assets/images/img_port/git.svg" alt="Visitez mon GitHub"></a>
+      </div>
+    </div>
+
+    <p class="p--copy">&#169;Théo Colpaert — 2025</p>
+  </footer>
+
+</body>
+
+</html>

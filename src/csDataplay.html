@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataplay</title>
+    <meta name="description" content="Dans le cadre du travail de groupe Dataplay, nous devions exploiter un jeu de données JSON à travers une expérience web interactive.">
+    <meta property="og:site_name" content="Dataplay Case Study">
+    <meta property="og:title" content="Dataplay Case Study">
+    <meta property="og:description" content="Dans le cadre du travail de groupe Dataplay, nous devions exploiter un jeu de données JSON à travers une expérience web interactive.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theocolpaert.be/projets/tfa/csDataplay.html">
+    <meta property="og:image" content="https://theocolpaert.be/projets/tfa/assets/images/img_port/DataImg.webp">
+    <meta property="og:image:width" content="1800">
+    <meta property="og:image:height" content="945">
+
+    <link  rel="stylesheet" href="styles/app.css">
+    <script src="scripts/app.js" defer></script>
+    <script type="module" src="scripts/three-fond.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="https://theocolpaert.be/projets/tfa/assets/images/img_data/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="menu">
+        <p class="p--nav">Théo Colpaert</p>
+        <button class="menu__btn"></button>
+        <ul class="menu__liste">
+            <li class="menu--li"><a href="index.html">Portfolio</a></li>
+            <li class="menu--li"><a href="csRux.html">PRUX Case Study</a></li>
+            <li class="menu--li"><a href="csDesignF.html">Design Fiction Case Study </a></li>
+            <li class="menu--li"><a href="designFiction.html">Projet Design Fiction</a></li>
+        </ul>
+    </nav>
+        
+  <header class="banniere gridcol">
+    <div class="banniere__text">
+      <h1 class="title title--big">Dataplay Case Study</h1>
+      <p class="p--center__big">Apprendre à utiliser un fichier JSON</p>
+    </div>
+  </header>
+
+  <div class="scroll-down js-scroll-down">
+      <svg width="80" height="80" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="20" stroke="#fafafa" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="125" stroke-dashoffset="100" class="scroll-circle"></circle>
+          <path d="M25 32 l-6 -6 h12 l-6 6" fill="#fafafa"/>
+      </svg>
+  </div>
+
+  <main>
+    <nav class="nav-vertical">
+        <a href="#section-1">1.&nbsp;Contexte</a>
+        <a href="#section-2">2.&nbsp;Faire un tri</a>
+        <a href="#section-3">3.&nbsp;Des illustrations</a>
+        <a href="#section-4">4.&nbsp;En parallèle</a>
+        <a href="#section-5">5.&nbsp;Le code</a>
+        <a href="#section-6">6.&nbsp;Les soucis rencontrés</a>
+        <a href="#section-7">7.&nbsp;Conclusion</a>
+    </nav>
+
+    <section id="section-1" class="section gridcol gridpc">
+        <h2 class="title title--col2">1. Contexte</h2>
+        <p class="p p--col2col6">Notre groupe, composé de Nicolas Lefebvre, Jarne De Scheerder, Andrea Romeo Vasquez et moi-même, a réalisé un projet visant à récolter des données concernant un sujet de notre choix et à les mettre en forme de manière interactive sur un site internet, ce projet était nommé&nbsp;“Dataplay”.</p>
+        <p class="p p--col2col6">Après avoir étudié différentes idées, telles que : une étude des toiles d'araignées, ou, sur les zones géographiques les plus soumises aux intempéries.  <span>Concernant le sujet, il est ressorti que l’analyse de certains accidents d’avions était la piste la plus intéressante.</span> En effet, après quelques recherches sur internet, Jarne a mis la main sur un fichier JSON regroupant la majorité des accidents aériens depuis 1908. Ce fichier reprend par exemple, le nombre de personnes à bord, le nombre de victimes ou encore les causes de l’accident. Nous sommes donc partis de cette base pour le&nbsp;projet.</p>
+    </section>
+
+    <section id="section-2" class="section gridcol gridpc">
+        <h2 class="title title--col2">2. Faire un tri</h2>
+        <p class=" p p--col3col6"><span>Le fichier JSON était beaucoup trop lourd pour l'exploiter directement sur un site internet (plus de 700.000 lignes de code).</span> En accord avec le groupe, Jarne et moi avons donc décidé de faire un tri. Dans un premier temps, nous avons retiré tous les avions pour lesquels les données étaient incomplètes, ainsi que tous les accidents impliquant des avions militaires. Ce tri a pris beaucoup de temps mais a permis de réduire significativement le poids du JSON, ce qui a rendu le fichier plus exploitable pour la suite du&nbsp;projet.</p>
+        <p class="p p--col3col6">Dans un second temps, j’ai encore diminué le poids du fichier en ne gardant que quelques constructeurs et&nbsp;modèles.</p>  
+        <img class="img--pos img--code__data" src="assets/images/img_data/lignes_code.webp" srcset="assets/images/img_data/@2x/lignes_code@2x.webp 2x" alt="Images montrant le nombre de lignes de code dans le JSON (741 938) avant tout travail de notre part. ">          
+    </section>
+
+    <section id="section-3" class="section gridcol gridpc">
+        <h2 class="title title--col3">3. Des illustrations</h2>
+        <p class="p p--col3col6">Une fois le tri effectué et les modèles sélectionnés, j’ai réalisé des illustrations pour chacun des avions retenus. <span>Pour chaque appareil, j’ai réalisé deux vues détaillées : une vue de dessus et une vue de profil, afin de permettre de montrer au grand public à quoi ressemblait l'avion avant son accident.</span> Ils n'était donc pas utile que les avions soit grandement détaillé, celà m'a permis de ne pas prendre trop de temps pour cette&nbsp;tâche.</p>          
+    </section>
+
+    <section class="section--imgline">
+        <img class="img--avion1 img--pos" src="assets/images/img_data/737_1.webp" srcset="assets/images/img_data/@2x/737_1@2x.webp 2x" alt="Section avant d'un Boeing 737 illustrée par mes soins.">
+        <img class="img--avion2 img--pos" src="assets/images/img_data/737_2.webp" srcset="assets/images/img_data/@2x/737_2@2x.webp 2x" alt="Section médiane d'un Boeing 737 illustrée par mes soins.">
+        <img class="img--avion3 img--pos" src="assets/images/img_data/737_3.webp" srcset="assets/images/img_data/@2x/737_3@2x.webp 2x" alt="Section arrière d'un Boeing 737 illustrée par mes soins.">
+    </section>
+
+    <section id="section-4" class="section gridcol gridpc">
+        <h2 class="title title--col1">4. En parallèle</h2>
+        <p class="p p--col1col5">Pendant que le tri était en train d’être effectué, Nicolas et Andrea commençaient à travailler sur le design du site. <span>Un premier Figma a vu le jour, pour nous permettre de montrer aux professeurs notre idée de design.</span> Ce premier visuel n’était pas détaillé et n’avait aucune couleur. Il nous a juste permis de nous projeter dans la&nbsp;conception</p>
+        <img class="img--pos img--plan" src="assets/images/img_data/figmaNB.webp" srcset="assets/images/img_data/@2x/figmaNB@2x.webp 2x" alt="Image du premier plan réalisé sur Figma. Nous pouvons voir les 3 wireframes qui ont servis àdémarrer le projet.">
+        <p class="p p--col1col5">Avant de passer au code, Nicolas a pris la décision de refaire un figma, mais cette fois avec les couleurs et les détails. Ce Figma nous a permis de voir à quoi notre site allait ressembler une fois qu’il serait&nbsp;terminé.</p>
+
+    </section>
+
+    <section id="section-5" class="section  gridcol gridpc">
+        <h2 class="title title--col3">5. Le code</h2>
+        <p class="p p--col3col7">Une fois le design validé, nous avons lancé le développement du site en répartissant les tâches selon les compétences de chacun. Andrea s’est chargé des animations, notamment celle du nom du projet au chargement. Nicolas a travaillé sur le design global et l’ergonomie. <span>Jarne et moi avons intégré les données du fichier JSON et développé les scripts d’affichage dynamiques, tout en respectant la structure visuelle.</span> Jarne a également contribué au JS et au SCSS pour ajuster l’interface.</p>
+        <img class="img--pos img--code__data" src="assets/images/img_data/DataplayMU.webp" srcset="assets/images/img_data/@2x/DataplayMU@2x.webp 2x" alt="MockUp du rendu du site que nous avons codé. L'image de base vient de FreePik, je l'ai retravaillée avec Photoshop.">
+        <p class="p p--col3col7">Pour éviter les conflits, nous avons utilisé GitHub : chaque membre travaillait sur une branche dédiée, intégrée au “main” une fois testée. Cette organisation asynchrone et structurée nous a permis d’avancer efficacement et en limitant aux maximum les erreurs.</p>
+    </section>
+    <section id="section-6" class="section gridcol gridpc">
+        <h2 class="title title--col2">6. Les soucis rencontrés</h2>
+        <p class="p--col3col7">Lors du projet, le groupe a dû faire face à quelques ennuis tels que la semaine de vacances. En effet, durant cette semaine il a été difficile de regrouper tous les membres du groupe de façon régulière pour travailler (à cause notamment des jobs étudiant de certains membres). Nous avons donc dû nous adapter en nous répartissant les tâches sans vraiment savoir ce que les autres faisaient (à cette période nous n’avions eu qu’une petite introduction à&nbsp;GitHub).</p>
+        <p class="p--col3col7">Malgré toutes les précautions prises lors du regroupement des différentes branches séparées, le groupe n’a pas échappé à quelques conflits, qu’il a fallu comprendre et régler sans en occasionner&nbsp;d’autres.</p>
+        <p class="p--col3col7">Durant la première semaine de Dataplay, nous devions rendre un autre travail (PRUX). Certains membres du groupe ont donc logiquement mis la priorité sur ce projet et non&nbsp;sur&nbsp;Dataplay.</p>
+    </section> 
+
+
+    <section id="section-7" class="section gridcol gridpc">
+        <h2 class="title title--col2">7. Conclusion</h2>
+        <p class="p--col2col6"><span>Ce travail de groupe m’a permis d’apprendre à gérer des données d’un fichier JSON et à les exploiter sur un site internet.</span> J’ai aussi été familiarisé à l’utilisation de GitHub et à la correction de&nbsp;bugs.</p>
+    </section>
+
+    <section id="section-7" class="section gridcol gridpc">
+            <a class="btn--projet" href="https://theocolpaert.be/projets/dataplay/" target="_blank">Explorez le projet</a>
+    </section>
+
+  </main>
+  
+  <footer id="contact" class="gridfoot gridcol foot_cs">
+    <div class="div--footer">
+      <h4 class="title--h4">Contact&nbsp;me</h4>
+      <p class="p--contact"><a class="mailto" href="mailto:theocolpaert8@gmail.com">theocolpaert8@gmail.com</a></p>
+      <div class="socials">
+        <a href="https://www.instagram.com/theo.colpaert/" target="_blank"><img class="img-res" src="assets/images/img_port/insta.svg" alt="Visitez ma page Instagram"></a>
+        <a href="https://www.facebook.com/theo.colpaert" target="_blank"><img class="img-res" src="assets/images/img_port/fb.svg" alt="Visitez ma page Facebook"></a>
+        <a href="https://github.com/Foxx05" target="_blank"><img class="img-res" src="assets/images/img_port/git.svg" alt="Visitez mon GitHub"></a>
+      </div>
+    </div>
+
+    <p class="p--copy">&#169;Théo Colpaert — 2025</p>
+  </footer>
+
+</body>
+
+</html>
