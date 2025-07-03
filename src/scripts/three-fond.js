@@ -6,7 +6,7 @@ import { RoundedBoxGeometry } from 'https://cdn.skypack.dev/three@0.129.0/exampl
 // Pour faire le fond en 3D, j'ai d'abord essayé en lisant la doc de Three.js mais je n'ai pas réussi à avoir un 
 // Scène
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x113022); // fond
+scene.background = new THREE.Color(0x0F1A20); // fond
 
 // Caméra perspective inclinée
 const camera = new THREE.PerspectiveCamera(
@@ -30,7 +30,7 @@ scene.add(directionalLight);
 
 // Matériau des cubes
 const material = new THREE.MeshStandardMaterial({
-  color: 0x32614E,
+  color: 0x1E3A5F,
   roughness: 0.4,
   metalness: 0.3,
 });
