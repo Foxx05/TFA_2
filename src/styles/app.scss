@@ -191,6 +191,7 @@ h2{
     grid-column: 1/-1;
     text-align: center;
     font-size: clamp(2.688rem, 2.611vw + 2.116rem, 5.25rem);
+    margin-top: 240px;
 }
 
 .div--dataplay, .div--prux, .div--cs_designf, .div--designf{
@@ -934,6 +935,9 @@ span{
         margin-bottom: 80px;
     }
 
+    .p--center{
+        margin-top: 240px;
+    }
     .p--center, .img--center{
         grid-column: 3/-3;
     }
