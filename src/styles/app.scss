@@ -1185,15 +1185,15 @@ span{
         grid-column: 6/-1;
     }
 
-    #container3D{
-        grid-column: 5/-1;
-        grid-row: 2/-1;
-        overflow: hidden;
-    }
+    // #container3D{
+    //     grid-column: 5/-1;
+    //     grid-row: 2/-1;
+    //     overflow: hidden;
+    // }
 
-    #container3D canvas{
-        position: relative !important;
-    }
+    // #container3D canvas{
+    //     position: relative !important;
+    // }
 
     // Anim flèche qui sautille
 
