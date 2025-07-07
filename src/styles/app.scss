@@ -936,10 +936,13 @@ span{
     }
 
     .p--center{
+        // margin-top: 240px;
+        grid-column: 2/5;
         margin-top: 240px;
     }
-    .p--center, .img--center{
-        grid-column: 3/-3;
+    .img--center{
+        margin-top: 240px;
+        grid-column: 5/-2;
     }
 
     .section--projects{
