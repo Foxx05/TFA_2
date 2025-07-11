@@ -1,5 +1,142 @@
 "use strict";
 
+const canvas = document.getElementById("particules_bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Particules
+let particles = [];
+const numParticles = 100;
+const maxDistance = 100;
+
+// Coordonnées curseur
+const mouse = { x: null, y: null };
+
+// Met à jour la position du curseur lorsqu'il bouge
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+// Responsive
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// Particule
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;         // Position X aléatoire
+    this.y = Math.random() * canvas.height;        // Position Y aléatoire
+    this.vx = (Math.random() - 0.5) * 0.8;          // Vitesse X aléatoire
+    this.vy = (Math.random() - 0.5) * 0.8;          // Vitesse Y aléatoire
+    this.radius = 3.5;                              // Rayon du point
+    this.color = "#ffab40";                         // Couleur du point
+  }
+
+  // Met à jour la position de la particule et gère les rebonds
+  move() {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // Inverser la direction si la particule touche un bord
+    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+  }
+
+  // Dessine la particule sur le canvas
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+}
+
+// Connecte deux particules si elles sont assez proches
+function connectParticles(p1, p2) {
+  const dx = p1.x - p2.x;
+  const dy = p1.y - p2.y;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+
+  if (dist < maxDistance) {
+    const opacity = 1 - dist / maxDistance;
+    ctx.strokeStyle = hexToRgba(p1.color, opacity); // Même couleur que la particule
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p2.x, p2.y);
+    ctx.stroke();
+  }
+}
+
+// Connecte les particules proches du curseur
+function connectToMouse(p) {
+  const dx = p.x - mouse.x;
+  const dy = p.y - mouse.y;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+
+  if (dist < maxDistance) {
+    const opacity = 1 - dist / maxDistance;
+    ctx.strokeStyle = hexToRgba(p.color, opacity);
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+    ctx.lineTo(mouse.x, mouse.y);
+    ctx.stroke();
+  }
+}
+
+// Convertit un code hexadécimal en rgba avec opacité
+function hexToRgba(hex, opacity) {
+  const bigint = parseInt(hex.slice(1), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+
+// Boucle d'animation principale
+function animate() {
+  // Efface l'écran à chaque frame
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Met à jour et dessine chaque particule
+  for (let p of particles) {
+    p.move();
+    p.draw();
+  }
+
+  // Connecte toutes les particules entre elles si proches
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      connectParticles(particles[i], particles[j]);
+    }
+  }
+
+  // Connecte les particules proches du curseur
+  if (mouse.x && mouse.y) {
+    for (let p of particles) {
+      connectToMouse(p);
+    }
+  }
+
+  // Redemande une nouvelle frame
+  requestAnimationFrame(animate);
+}
+
+// Création des particules initiales
+for (let i = 0; i < numParticles; i++) {
+  particles.push(new Particle());
+}
+
+// Lancement de l'animation
+animate();
+
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
