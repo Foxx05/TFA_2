@@ -262,7 +262,7 @@ a{
     padding-left: 10px;
     padding-right: 10px;
     align-self: start;
-    background-color: #42585D;
+    background-color: transparent;
 }
 
 /* footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer*/
@@ -316,6 +316,8 @@ footer{
     margin: 20px;
     margin-right: 0;
     grid-column: 1/-1;
+    background-color: transparent;
+    padding: 0;
 }
 
 .title--h4{
@@ -326,6 +328,8 @@ footer{
 .p--contact{
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: transparent;
+    padding: 0;
 }
 .p--credits{
     grid-column: 1/-1;
