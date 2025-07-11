@@ -37,17 +37,17 @@ class Particle {
     this.color = "#ffab40";                         // Couleur du point
   }
 
-  // Met à jour la position de la particule et gère les rebonds
+  // MAJ position particule
   move() {
     this.x += this.vx;
     this.y += this.vy;
 
-    // Inverser la direction si la particule touche un bord
+    // Changer direction si contact avec bord
     if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
     if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
   }
 
-  // Dessine la particule sur le canvas
+  // Affichage particule
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -56,7 +56,7 @@ class Particle {
   }
 }
 
-// Connecte deux particules si elles sont assez proches
+// Connecte 2 particules si proches
 function connectParticles(p1, p2) {
   const dx = p1.x - p2.x;
   const dy = p1.y - p2.y;
@@ -73,7 +73,7 @@ function connectParticles(p1, p2) {
   }
 }
 
-// Connecte les particules proches du curseur
+// Connection partiucules - curseur
 function connectToMouse(p) {
   const dx = p.x - mouse.x;
   const dy = p.y - mouse.y;
@@ -110,7 +110,7 @@ function animate() {
     p.draw();
   }
 
-  // Connecte toutes les particules entre elles si proches
+  // Connecte toutes les particules si proches
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       connectParticles(particles[i], particles[j]);
