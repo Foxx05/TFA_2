@@ -297,8 +297,8 @@ footer{
     width: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
 }
 
-.img-res:hover{   
-    filter: brightness(10%);
+.img-res:hover {
+  filter: sepia(1) hue-rotate(-15deg) saturate(6.5) brightness(0.98);
 }
 
 .mailto{
@@ -308,7 +308,7 @@ footer{
 }
 
 .mailto:hover{
-    color: #56767e;
+    color: #ffab40;
 }
 
 .p--copy{
@@ -342,26 +342,9 @@ footer{
     cursor: pointer;
 }
 .p--credits:hover{
-    color: #327D7D;
+    color: #ffab40;
 }
 
-#backToTop__cs{
-    grid-column: 1/2;
-    margin: 18px;
-    padding: 0;
-    font-size: 0px;
-    border: none;
-    border-radius: 25px;
-    background-color: #42585D;
-    color: #fafafa;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: all .3s;
-}
-#backToTop__cs:hover{
-    background-color: #56767e;
-    transform: scale(1.1);
-}
 /*TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA TFA */
 .img--header{
     width: 100%;
@@ -581,14 +564,14 @@ span{
     margin-top: 80px;
     padding: 9px;
     background-color: #fafafa;
-    color: #42585D;
+    color: #2b3553;
     border-radius: 25px;
     transition: all .3s;
     margin-bottom: 20px;
 }
 .btn--projet:hover{
     color: #fafafa;
-    background-color: #56767e;
+    background-color: #2b3553;
 }
 
 /* footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer footer*/
@@ -597,13 +580,13 @@ span{
     padding-top: clamp(0.75rem, 0.5069rem + 1.1111vw, 1.375rem);
 }
 
- .foot__cs{
+.foot__cs{
     display: grid; 
     column-gap: 16px;
     background: linear-gradient(0.25turn, #56767e, #927b4d);
     height: 300px;
     margin-top: 25px;
-   clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
 }
 
 .footer--liste__cs{
@@ -897,7 +880,25 @@ span{
 
 @media (min-width: 1250px){
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // portfolio
-  
+    * {
+        cursor: none !important;
+    }
+    .custom-cursor {
+        position: fixed;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #ffab40; /* couleur de ton thème */
+        background-color: #ffab40;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease;
+        box-shadow: 0 0 12px 4px rgba(255, 171, 64, 0.5);
+        z-index: 9999;
+    }
+    .custom-cursor.cursor-hover {
+        transform: translate(-50%, -50%) scale(2); /* Grossissement au survol */
+    }
     .menu{
         display: flex;
         flex-direction: row;

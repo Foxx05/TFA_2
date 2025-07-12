@@ -1,5 +1,22 @@
 "use strict";
+//Curseur
+const cursor = document.querySelector(".custom-cursor");
 
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+document.addEventListener("mouseover", (e) => {
+  if (e.target.closest("a, button, input, textarea, select, [role='button']")) {
+    cursor.classList.add("cursor-hover");
+  } else {
+    cursor.classList.remove("cursor-hover");
+  }
+});
+
+
+//Anim fond
 const canvas = document.getElementById("particules_bg");
 const ctx = canvas.getContext("2d");
 
@@ -136,7 +153,7 @@ for (let i = 0; i < numParticles; i++) {
 // Lancement de l'animation
 animate();
 
-
+//Anim page acceuil
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -160,6 +177,8 @@ if (document.querySelector('.p--center__big')) {
         ease: "power3.out",
     });
 }
+
+//Anim pres projets
 
 if (document.querySelector('.ligne-haut')) {
     gsap.from(".ligne-haut", {
