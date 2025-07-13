@@ -289,17 +289,18 @@ footer{
     font-size: 0;
 }
 
-.img-res{
-    border-radius: 0;
-    cursor: pointer;
-    transition: all .3s;
-    height: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
-    width: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
+a .img-res {
+  color: #fafafa;
+  transition: color 0.3s ease;
+  height: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
+  width: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
+  cursor: pointer;
 }
 
-.img-res:hover {
-  filter: sepia(1) hue-rotate(-15deg) saturate(6.5) brightness(0.98);
+a:hover .img-res{
+  color: #f4b942;
 }
+
 
 .mailto{
     color: #fafafa;
