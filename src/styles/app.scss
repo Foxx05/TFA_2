@@ -283,7 +283,6 @@ footer{
     gap: 16px;
     margin-right: 20px;
     background-color: transparent;
-    filter: brightness(25);
     margin-top: 18px;
     font-size: 0;
 }
@@ -294,11 +293,11 @@ footer{
   }
 
 .socials a {
-  color: blue;
+  color: #fafafa;
   transition: color 0.3s ease;
 }
 
-.socials a:hover .img-res{
+.socials a:hover{
   color: #f4b942;
 }
 
