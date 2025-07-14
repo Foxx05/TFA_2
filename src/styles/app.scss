@@ -273,7 +273,6 @@ footer{
 
 .div--footer{
     grid-column: 1/3;
-    color: #fafafa;
     background-color: transparent;
     padding-left: 20px;
 }
@@ -289,18 +288,19 @@ footer{
     font-size: 0;
 }
 
-a .img-res {
-  color: #fafafa;
+.img-res {
+    height: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
+    width: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
+  }
+
+.socials a {
+  color: blue;
   transition: color 0.3s ease;
-  height: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
-  width: clamp(3rem, 2.7083rem + 1.3333vw, 3.75rem);
-  cursor: pointer;
 }
 
-a:hover .img-res{
+.socials a:hover {
   color: #f4b942;
 }
-
 
 .mailto{
     color: #fafafa;
@@ -323,6 +323,7 @@ a:hover .img-res{
 
 .title--h4{
     grid-column: 1/-1;
+    color: #fafafa;
     margin: 0;
     font-size: clamp(1.5rem, 1.465vw + 1.18rem, 2.938rem);
 }
