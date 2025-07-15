@@ -36,7 +36,7 @@ canvas {
 
 p{
     font-size: clamp(1.125rem, 0.127vw + 1.097rem, 1.25rem);
-    margin-bottom: 23px;
+    margin-bottom: clamp(1.4375rem, 0.9757rem + 2.1111vw, 2.625rem);
     margin-top: 0;
     line-height: 140%;
     grid-column:1/-1 ;
@@ -429,7 +429,7 @@ span{
     color: #121212;
     text-decoration: none;
     text-align: center;
-    margin-bottom: 23px;
+    // margin-bottom: 23px;
 }
 
 .btn--temoins:hover, .btn--temoins2:hover{
@@ -517,25 +517,14 @@ span{
 .img--pos{
     grid-column: 1/-1;
     width: 100%;
-    margin-bottom: 23px;
+    // margin-bottom: 23px;
 }
 
 .img--analyse{
     width: 50%;
     grid-column: 1/-1;
-    margin-bottom: 23px;
+    // margin-bottom: 23px;
     justify-self: center;
-}
-.p--chiffre__prux, .p--chiffre__data{
-    font-size: 119px;
-    align-items: center;
-    font-weight: 500;
-    grid-column: 1/-1;
-    text-align: center;
-    margin: 0;
-    background: linear-gradient(0.25turn, #c07615, #f3a200);
-    background-clip: text;
-    color: transparent;
 }
 
 .p--commun1{
@@ -722,7 +711,7 @@ span{
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
 
     p{
-        margin-bottom: 42px;
+        // margin-bottom: 42px;
         grid-column: 1/-1;
     }
 
@@ -1015,7 +1004,7 @@ span{
     }
     .p--col3col6{
         grid-column: 3/-2;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
     .p--col3col6__tfa{
         background-color: #121212;
@@ -1032,8 +1021,8 @@ span{
     
     .p--col1col5{
         grid-column: 1/5;
-        padding-right: 10px;
-        padding-bottom: 10px;
+        // padding-right: 10px;
+        // padding-bottom: 10px;
     }
 
     .p--col1col5__tfa{
@@ -1108,9 +1097,6 @@ span{
         grid-row: 2/6;
         width: 100%;
         margin: 0;
-    }
-    .p--col4col8{
-        grid-column: 4/-1;
     }
     .p--chiffre__prux{
         grid-column: 1/4;
