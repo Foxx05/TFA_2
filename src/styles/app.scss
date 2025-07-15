@@ -886,6 +886,7 @@ span{
     .custom-cursor.cursor-hover {
         transform: translate(-50%, -50%) scale(2); /* Grossissement au survol */
     }
+    
     .menu{
         display: flex;
         flex-direction: row;
@@ -1191,7 +1192,7 @@ span{
         width: 80px;
         height: 80px;
         cursor: pointer;
-        z-index: 9999;
+        z-index: 25;
         display: flex;
         align-items: center;
         justify-content: center;

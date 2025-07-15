@@ -1,5 +1,5 @@
 "use strict";
-//Curseur
+// Curseur
 const cursor = document.querySelector(".custom-cursor");
 
 document.addEventListener("mousemove", (e) => {
@@ -8,7 +8,10 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseover", (e) => {
-  if (e.target.closest("a, button, input, textarea, select, [role='button']")) {
+  const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button']");
+  const isScrollDown = e.target.closest(".scroll-down");
+
+  if (isInteractive || isScrollDown) {
     cursor.classList.add("cursor-hover");
   } else {
     cursor.classList.remove("cursor-hover");
