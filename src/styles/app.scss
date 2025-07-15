@@ -40,7 +40,6 @@ p{
     margin-top: 0;
     line-height: 140%;
     grid-column:1/-1 ;
-    // padding: 18px;
     background-color: rgba(0, 22, 51, 0.8);
 }
 a{
@@ -429,7 +428,6 @@ span{
     color: #121212;
     text-decoration: none;
     text-align: center;
-    // margin-bottom: 23px;
 }
 
 .btn--temoins:hover, .btn--temoins2:hover{
@@ -517,13 +515,11 @@ span{
 .img--pos{
     grid-column: 1/-1;
     width: 100%;
-    // margin-bottom: 23px;
 }
 
 .img--analyse{
     width: 50%;
     grid-column: 1/-1;
-    // margin-bottom: 23px;
     justify-self: center;
 }
 
@@ -711,7 +707,6 @@ span{
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
 
     p{
-        // margin-bottom: 42px;
         grid-column: 1/-1;
     }
 
@@ -954,7 +949,6 @@ span{
         flex-direction: row;
         justify-content: center;
         gap: 20px;
-        margin-bottom: 20px;
         background-color: transparent;
         margin-bottom: 0;
     }
@@ -1004,7 +998,6 @@ span{
     }
     .p--col3col6{
         grid-column: 3/-2;
-        // margin-bottom: 20px;
     }
     .p--col3col6__tfa{
         background-color: #121212;
@@ -1021,8 +1014,6 @@ span{
     
     .p--col1col5{
         grid-column: 1/5;
-        // padding-right: 10px;
-        // padding-bottom: 10px;
     }
 
     .p--col1col5__tfa{
