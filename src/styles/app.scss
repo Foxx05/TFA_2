@@ -547,7 +547,7 @@ span{
     border-radius: 0;
 }
 
-.btn--projet{
+.btn--projet .btn--suiv{
     grid-column: 1/-1;
     text-align: center;
     margin-top: 80px;
@@ -558,7 +558,7 @@ span{
     transition: all .3s;
     margin-bottom: 20px;
 }
-.btn--projet:hover{
+.btn--projet:hover .btn--suiv:hover{
     color: #fafafa;
     background-color: #2b3553;
 }
