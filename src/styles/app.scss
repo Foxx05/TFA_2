@@ -417,6 +417,10 @@ span{
 .img--falcon, .img--falcon__cs, .img--capt{
     filter: drop-shadow(0 0 2px #fafafa);
 }
+   
+.p--col2col6__tfa, .p--col4col8__tfa, .p--col1col5__tfa, .p--col1col5__capt, .p--col3col6__tfa{
+    background-color: transparent;
+}
 
 .btn--temoins, .btn--temoins2{
     grid-column: 1/-1;  
@@ -1004,13 +1008,13 @@ span{
     .p--col2col5{
         grid-column: 2/6;
     }
-    .p--col2col6{
+    .p--col2col6, .p--col2col6__csdata, .p--col2col6__tfa{
         grid-column: 2/6;
     }
     .p--col2col6__csdata{
-        grid-column: 2/6;
         margin: 0px;
     }
+
     .p--col3col6{
         grid-column: 3/-2;
     }
@@ -1023,7 +1027,7 @@ span{
         grid-column: 3/-1;
     }
 
-    .p--col4col8{
+    .p--col4col8, .p--col4col8__tfa{
         grid-column: 4/-1;
     }
     
