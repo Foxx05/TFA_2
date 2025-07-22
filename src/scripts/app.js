@@ -20,141 +20,130 @@ document.addEventListener("mouseover", (e) => {
 
 
 //Anim fond
-const canvas = document.getElementById("particules_bg");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("particules_bg");
 
-// Particules
-let particles = [];
-const numParticles = 100;
-const maxDistance = 100;
+  if (!canvas) return; // 🛑 Stoppe ici si le canvas n'existe pas
 
-// Coordonnées curseur
-const mouse = { x: null, y: null };
+  const ctx = canvas.getContext("2d");
 
-// Met à jour la position du curseur lorsqu'il bouge
-window.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
-// Responsive
-window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  const particles = [];
+  const numParticles = 100;
+  const maxDistance = 100;
+
+  const mouse = { x: null, y: null };
+
+  window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.8;
+      this.vy = (Math.random() - 0.5) * 0.8;
+      this.radius = 3.5;
+      this.color = "#ffab40";
+    }
+
+    move() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  }
+
+  function connectParticles(p1, p2) {
+    const dx = p1.x - p2.x;
+    const dy = p1.y - p2.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < maxDistance) {
+      const opacity = 1 - dist / maxDistance;
+      ctx.strokeStyle = hexToRgba(p1.color, opacity);
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.stroke();
+    }
+  }
+
+  function connectToMouse(p) {
+    const dx = p.x - mouse.x;
+    const dy = p.y - mouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < maxDistance) {
+      const opacity = 1 - dist / maxDistance;
+      ctx.strokeStyle = hexToRgba(p.color, opacity);
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.lineTo(mouse.x, mouse.y);
+      ctx.stroke();
+    }
+  }
+
+  function hexToRgba(hex, opacity) {
+    const bigint = parseInt(hex.slice(1), 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let p of particles) {
+      p.move();
+      p.draw();
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        connectParticles(particles[i], particles[j]);
+      }
+    }
+
+    if (mouse.x !== null && mouse.y !== null) {
+      for (let p of particles) {
+        connectToMouse(p);
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  // Création des particules
+  for (let i = 0; i < numParticles; i++) {
+    particles.push(new Particle());
+  }
+
+  animate(); // 🚀 Lancement de l'animation
 });
 
-// Particule
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;         // Position X aléatoire
-    this.y = Math.random() * canvas.height;        // Position Y aléatoire
-    this.vx = (Math.random() - 0.5) * 0.8;          // Vitesse X aléatoire
-    this.vy = (Math.random() - 0.5) * 0.8;          // Vitesse Y aléatoire
-    this.radius = 3.5;                              // Rayon du point
-    this.color = "#ffab40";                         // Couleur du point
-  }
-
-  // MAJ position particule
-  move() {
-    this.x += this.vx;
-    this.y += this.vy;
-
-    // Changer direction si contact avec bord
-    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-  }
-
-  // Affichage particule
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-}
-
-// Connecte 2 particules si proches
-function connectParticles(p1, p2) {
-  const dx = p1.x - p2.x;
-  const dy = p1.y - p2.y;
-  const dist = Math.sqrt(dx * dx + dy * dy);
-
-  if (dist < maxDistance) {
-    const opacity = 1 - dist / maxDistance;
-    ctx.strokeStyle = hexToRgba(p1.color, opacity); // Même couleur que la particule
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(p1.x, p1.y);
-    ctx.lineTo(p2.x, p2.y);
-    ctx.stroke();
-  }
-}
-
-// Connection partiucules - curseur
-function connectToMouse(p) {
-  const dx = p.x - mouse.x;
-  const dy = p.y - mouse.y;
-  const dist = Math.sqrt(dx * dx + dy * dy);
-
-  if (dist < maxDistance) {
-    const opacity = 1 - dist / maxDistance;
-    ctx.strokeStyle = hexToRgba(p.color, opacity);
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(p.x, p.y);
-    ctx.lineTo(mouse.x, mouse.y);
-    ctx.stroke();
-  }
-}
-
-// Convertit un code hexadécimal en rgba avec opacité
-function hexToRgba(hex, opacity) {
-  const bigint = parseInt(hex.slice(1), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-}
-
-// Boucle d'animation principale
-function animate() {
-  // Efface l'écran à chaque frame
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Met à jour et dessine chaque particule
-  for (let p of particles) {
-    p.move();
-    p.draw();
-  }
-
-  // Connecte toutes les particules si proches
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      connectParticles(particles[i], particles[j]);
-    }
-  }
-
-  // Connecte les particules proches du curseur
-  if (mouse.x && mouse.y) {
-    for (let p of particles) {
-      connectToMouse(p);
-    }
-  }
-
-  // Redemande une nouvelle frame
-  requestAnimationFrame(animate);
-}
-
-// Création des particules initiales
-for (let i = 0; i < numParticles; i++) {
-  particles.push(new Particle());
-}
-
-// Lancement de l'animation
-animate();
 
 //Anim page acceuil
 import { gsap } from "gsap";
@@ -351,4 +340,46 @@ gsap.utils.toArray('.animate').forEach(elem => {
       toggleActions: "play none none none"
     }
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll('.carousel-img');
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  // Si aucun élément essentiel n'existe, on stoppe ici
+  if (images.length === 0 || dots.length === 0 || !prevBtn || !nextBtn) return;
+
+  let index = 0;
+
+  function updateView() {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  // Navigation boutons
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + images.length) % images.length;
+    updateView();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    updateView();
+  });
+
+  // Clic sur les points
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      index = i;
+      updateView();
+    });
+  });
+
+  updateView(); // Initialisation de l'affichage
 });
