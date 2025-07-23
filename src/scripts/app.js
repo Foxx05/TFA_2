@@ -383,3 +383,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateView(); // Initialisation de l'affichage
 });
+
+
+document.querySelectorAll('.point').forEach(point => {
+  point.addEventListener('click', () => {
+    const popup = point.nextElementSibling;
+    popup.classList.toggle('active');
+  });
+});

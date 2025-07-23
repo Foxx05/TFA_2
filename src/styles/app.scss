@@ -454,6 +454,71 @@ span{
     grid-column: 2/-2;
     margin-bottom: 40px;
 }
+
+.section--imgplus {
+  display: flex;
+  justify-content: center;
+}
+
+.container1 {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: url('img/fond.jpg') no-repeat center/cover;
+}
+
+/* Groupe point + popup */
+.wrapper {
+  position: absolute;
+  width: 80px;   /* zone de survol */
+  height: 80px;
+}
+
+.point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
+  z-index: 10;
+  border: 3px solid #fafafa;
+}
+
+.popup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wrapper:hover .popup,
+.popup:hover {
+  opacity: 1;
+  transform: scale(1) translate(0, 0);
+}
+
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
 
 .scroll-down{
