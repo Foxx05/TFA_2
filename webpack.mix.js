@@ -13,8 +13,6 @@ const mix = require('laravel-mix');
 
 mix
   .copy('src/**/*.html', 'dist')
-  .copy('src/scripts/three-bird.js', 'dist/scripts/')
-  .copy('src/scripts/three-fond.js', 'dist/scripts/')
   .copyDirectory('src/assets', 'dist/assets')
   .js('src/scripts/app.js', 'dist/scripts/')
   .sass('src/styles/app.scss', 'styles/', { sassOptions: { outputStyle: 'expanded' } })
