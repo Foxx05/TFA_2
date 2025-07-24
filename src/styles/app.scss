@@ -543,7 +543,10 @@ button:hover {
   position: relative;
   width: 400px;
   height: 400px;
-  background: url('img/fond.jpg') no-repeat center/cover;
+  background-image: url('../assets/images/img_df/img_th.webp');
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
 }
 
 /* Groupe point + popup */
@@ -560,7 +563,7 @@ button:hover {
   transform: translate(-50%, -50%);
   width: 30px;
   height: 30px;
-  background: red;
+  background: #f4b942;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -576,7 +579,7 @@ button:hover {
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: auto;
   z-index: 10;
-  border: 3px solid #fafafa;
+  border: 3px solid #f4b942;
 }
 
 .popup.active {
@@ -590,6 +593,8 @@ button:hover {
   height: 100%;
   object-fit: cover;
   display: block;
+  background-color: #121212;
+  border-radius: 0px;
 }
 
 .wrapper:hover .popup,
