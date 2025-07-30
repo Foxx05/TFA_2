@@ -25,6 +25,16 @@ body{
     overflow-x: hidden;
 }
 
+body.body_tfa{
+    padding: 0;
+    margin: 0;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    background-color: #121212;
+    box-sizing: border-box;	
+    color: #fafafa;
+}
+
 canvas {
     position: fixed;
     top: 0;
@@ -32,7 +42,6 @@ canvas {
     z-index: -100;
     background: #001633;
 }
-  
 
 p{
     font-size: clamp(1.125rem, 0.127vw + 1.097rem, 1.25rem);
@@ -360,16 +369,6 @@ footer{
 
 .section--full{
     font-size: 0;
-}
-
-.body_tfa{
-    padding: 0;
-    margin: 0;
-    font-family: 'Archivo', sans-serif;
-    background-color: #121212;
-    box-sizing: border-box;	
-    font-size: 16px;
-    color: #fafafa;
 }
 
 .img--header{
