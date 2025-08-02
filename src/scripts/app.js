@@ -288,14 +288,13 @@ gsap.utils.toArray('.animate').forEach(elem => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll('.carousel-img');
-  const dots = Array.from(document.querySelectorAll('.dot'));
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
+//Carousel img df
+const images = document.querySelectorAll('.carousel-img');
+const dots = Array.from(document.querySelectorAll('.dot'));
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
 
-  if (images.length === 0 || dots.length === 0 || !prevBtn || !nextBtn) return;
-
+if (images.length !== 0 && dots.length !== 0 && prevBtn && nextBtn) {
   let index = 0;
 
   function updateView() {
@@ -321,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateView();
-});
+}
 
 document.querySelectorAll('.point').forEach(point => {
   point.addEventListener('click', () => {

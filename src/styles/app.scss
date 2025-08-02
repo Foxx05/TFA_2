@@ -1213,12 +1213,13 @@ background-size: cover;
         grid-column: 2/6;
     }
 
-    .p--col2col6, .p--col2col6__csdata, .p--col2col6__tfa{
+    .p--col2col6, .p--col2col6__tfa{
         grid-column: 2/6;
     }
 
-    .p--col2col6__csdata{
+    .p--col2fin{
         margin: 0px;
+        grid-column: 2/-1;
     }
 
     .p--col3col6{
@@ -1406,6 +1407,7 @@ background-size: cover;
 
     .img--col6col1{
         grid-column: 6/-1;
+        grid-row: 3/-1;
     }
 
     // Anim flèche qui sautille
