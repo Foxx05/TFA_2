@@ -186,6 +186,7 @@ a{
 .p--center__big{
     font-size: clamp(1.5rem, 1.465vw + 1.18rem, 2.938rem);
     text-align: center;
+    background-color: transparent;
     color: #fafafa;
 }
 
@@ -591,11 +592,11 @@ background-size: cover;
 .popup{
   position: absolute;
   display: flex;
-  flex-direction: column; /* Image au-dessus, texte en dessous */
+  flex-direction: column;
   align-items: center;
-  gap: 8px;               /* Espace entre l’image et le texte */
-  width: 300px;           /* Plus large */
-  height: 300px;          /* Plus haute */
+  gap: 8px;
+  width: 300px;
+  height: 300px;
   padding: 10px;
   border-radius: 8px;
   background-color: #121212;
