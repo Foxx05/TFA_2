@@ -1,4 +1,14 @@
 "use strict";
+
+//Anim page acceuil
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Définition anticipée du body (utilisé plus bas)
+const body = document.body;
+
 // Curseur
 const cursor = document.querySelector(".custom-cursor");
 
@@ -18,23 +28,17 @@ document.addEventListener("mouseover", (e) => {
   }
 });
 
+//Anim fond -- aide chatGPT
+const canvas = document.getElementById("particules_bg");
 
-//Anim fond
-
-document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("particules_bg");
-
-  if (!canvas) return; // 🛑 Stoppe ici si le canvas n'existe pas
-
+if (canvas) {
   const ctx = canvas.getContext("2d");
-
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   const particles = [];
   const numParticles = 100;
   const maxDistance = 100;
-
   const mouse = { x: null, y: null };
 
   window.addEventListener("mousemove", (e) => {
@@ -136,90 +140,76 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animate);
   }
 
-  // Création des particules
   for (let i = 0; i < numParticles; i++) {
     particles.push(new Particle());
   }
 
-  animate(); // 🚀 Lancement de l'animation
-});
-
-
-//Anim page acceuil
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+  animate();
+}
 
 //Anim titres
 if (document.querySelector('.title--big')) {
-    gsap.from(".title--big", {
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        ease: "power3.out",
-    });
+  gsap.from(".title--big", {
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: "power3.out",
+  });
 }
 
 if (document.querySelector('.p--center__big')) {
-    gsap.from(".p--center__big", {
-        delay: 0.3,
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        ease: "power3.out",
-    });
+  gsap.from(".p--center__big", {
+    delay: 0.3,
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: "power3.out",
+  });
 }
 
 //Anim pres projets
-
 if (document.querySelector('.ligne-haut')) {
-    gsap.from(".ligne-haut", {
-        scrollTrigger: {
-            trigger: ".ligne-haut",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        },
-        duration: 1,
-        xPercent: 100,
-        opacity: 0,
-        ease: "power3.out",
-    });
+  gsap.from(".ligne-haut", {
+    scrollTrigger: {
+      trigger: ".ligne-haut",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    duration: 1,
+    xPercent: 100,
+    opacity: 0,
+    ease: "power3.out",
+  });
 }
 
 if (document.querySelector('.ligne-bas')) {
-    gsap.from(".ligne-bas", {
-        scrollTrigger: {
-            trigger: ".ligne-bas",
-            start: "top 80%",
-            toggleActions: "play none none none"
-        },
-        duration: 1,
-        xPercent: -100,
-        opacity: 0,
-        ease: "power3.out",
-    });
+  gsap.from(".ligne-bas", {
+    scrollTrigger: {
+      trigger: ".ligne-bas",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    duration: 1,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power3.out",
+  });
 }
 
 //Anim Invit scroll
 const scrollDown = document.querySelector('.scroll-down');
 
 if (scrollDown) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 150) {
-            scrollDown.classList.add('hidden');
-        } else {
-            scrollDown.classList.remove('hidden');
-        }
-    });
+  window.addEventListener('scroll', () => {
+    scrollDown.classList.toggle('hidden', window.scrollY > 150);
+  });
 
-    scrollDown.addEventListener('click', () => {
-        const targetSection = document.querySelector('section');
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
+  scrollDown.addEventListener('click', () => {
+    const targetSection = document.querySelector('section');
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 }
 
 //Menu
@@ -229,77 +219,36 @@ const menuElements = document.querySelectorAll(".menu--li");
 const menu = document.querySelector(".menu");
 
 function toggleMenu() {
-    body.classList.toggle("menu--open");
-    if (window.innerWidth < 980) {
-        body.classList.toggle("no-scroll");
-    }
+  body.classList.toggle("menu--open");
+  if (window.innerWidth < 980) {
+    body.classList.toggle("no-scroll");
+  }
 }
 
-if (menuBtn) {
-    menuBtn.addEventListener("click", toggleMenu);
-}
-
-if (menuElements.length > 0) {
-    menuElements.forEach((element) => {
-        element.addEventListener("click", toggleMenu);
-    });
-}
-
-if (links.length > 0) {
-    links.forEach(link => {
-        link.addEventListener("click", toggleMenu);
-    });
-}
-
-window.addEventListener("scroll", function () {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const fileName = window.location.pathname.split("/").pop();
-    if (fileName !== "designFiction.html" && fileName !== "pageTemoin.html") {
-        if (!body.classList.contains("menu--open")) {
-            if (scrollTop > lastScrollTop && scrollTop > 50) {
-            menu.classList.add("menu--hidden");
-            } else {
-            menu.classList.remove("menu--hidden");
-            }
-        }
-        lastScrollTop = Math.max(0, scrollTop);
-    }
-});
-
-//Back to top
-const backToTopButton = document.querySelector('.backToTop__cs');
-
-if (backToTopButton) {
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-var lastScrollTop = 0;
-const body = document.body;
+if (menuBtn) menuBtn.addEventListener("click", toggleMenu);
+menuElements.forEach(el => el.addEventListener("click", toggleMenu));
+links.forEach(link => link.addEventListener("click", toggleMenu));
 
 // Détection du nom de fichier (aide de ChatGPT pour éviter erreur console sur les autres pages)
 const fileName = window.location.pathname.split("/").pop();
+let lastScrollTop = 0;
 
 if (fileName !== "designFiction.html" && fileName !== "pageTemoin.html") {
-    var isMenuOpen = function () {
-        return body.classList.contains("menu--open");
-    };
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (!body.classList.contains("menu--open")) {
+      menu.classList.toggle("menu--hidden", scrollTop > lastScrollTop && scrollTop > 50);
+    }
+    lastScrollTop = Math.max(0, scrollTop);
+  });
+}
 
-    window.addEventListener("scroll", function () {
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (!isMenuOpen()) {
-            if (scrollTop > lastScrollTop) {
-                body.classList.add("menu-hidden");
-            } else {
-                body.classList.remove("menu-hidden");
-            }
-        }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
+//Back to top
+const backToTopButton = document.querySelector('.backToTop__cs');
+if (backToTopButton) {
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 //Nav verticale
@@ -307,27 +256,24 @@ const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-vertical a");
 
 if (sections.length > 0 && navLinks.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => link.classList.remove("active"));
-                document.querySelectorAll(`.nav-vertical a[href="#${entry.target.id}"]`).forEach(link => link.classList.add("active"));
-            }
-        });
-    }, { threshold: 0.5 });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove("active"));
+        document.querySelectorAll(`.nav-vertical a[href="#${entry.target.id}"]`).forEach(link => link.classList.add("active"));
+      }
+    });
+  }, { threshold: 0.5 });
 
-    sections.forEach(section => observer.observe(section));
+  sections.forEach(section => observer.observe(section));
 }
 
 //Force refresh ScrollTrigger après load (Aide ChatGPT)
 window.addEventListener('load', () => {
-    ScrollTrigger.refresh();
+  ScrollTrigger.refresh();
 });
 
-
 //Anim textes df - page témoin df
-gsap.registerPlugin(ScrollTrigger);
-
 gsap.utils.toArray('.animate').forEach(elem => {
   gsap.from(elem, {
     opacity: 0,
@@ -348,21 +294,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById('prev');
   const nextBtn = document.getElementById('next');
 
-  // Si aucun élément essentiel n'existe, on stoppe ici
   if (images.length === 0 || dots.length === 0 || !prevBtn || !nextBtn) return;
 
   let index = 0;
 
   function updateView() {
-    images.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
   }
 
-  // Navigation boutons
   prevBtn.addEventListener('click', () => {
     index = (index - 1 + images.length) % images.length;
     updateView();
@@ -373,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateView();
   });
 
-  // Clic sur les points
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
       index = i;
@@ -381,9 +320,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  updateView(); // Initialisation de l'affichage
+  updateView();
 });
-
 
 document.querySelectorAll('.point').forEach(point => {
   point.addEventListener('click', () => {
