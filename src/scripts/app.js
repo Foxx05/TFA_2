@@ -1,15 +1,14 @@
 "use strict";
 
-//Anim page acceuil
+// === Import GSAP ===
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 gsap.registerPlugin(ScrollTrigger);
 
-// Définition anticipée du body (utilisé plus bas)
+// === Définition anticipée du body ===
 const body = document.body;
 
-// Curseur
+// === Curseur personnalisé ===
 const cursor = document.querySelector(".custom-cursor");
 
 document.addEventListener("mousemove", (e) => {
@@ -20,17 +19,11 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseover", (e) => {
   const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button']");
   const isScrollDown = e.target.closest(".scroll-down");
-
-  if (isInteractive || isScrollDown) {
-    cursor.classList.add("cursor-hover");
-  } else {
-    cursor.classList.remove("cursor-hover");
-  }
+  cursor.classList.toggle("cursor-hover", Boolean(isInteractive || isScrollDown));
 });
 
-//Anim fond -- aide chatGPT
+// === Fond animé : particules ===
 const canvas = document.getElementById("particules_bg");
-
 if (canvas) {
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
@@ -64,7 +57,6 @@ if (canvas) {
     move() {
       this.x += this.vx;
       this.y += this.vy;
-
       if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
       if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
     }
@@ -81,7 +73,6 @@ if (canvas) {
     const dx = p1.x - p2.x;
     const dy = p1.y - p2.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
-
     if (dist < maxDistance) {
       const opacity = 1 - dist / maxDistance;
       ctx.strokeStyle = hexToRgba(p1.color, opacity);
@@ -97,7 +88,6 @@ if (canvas) {
     const dx = p.x - mouse.x;
     const dy = p.y - mouse.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
-
     if (dist < maxDistance) {
       const opacity = 1 - dist / maxDistance;
       ctx.strokeStyle = hexToRgba(p.color, opacity);
@@ -119,24 +109,20 @@ if (canvas) {
 
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     for (let p of particles) {
       p.move();
       p.draw();
     }
-
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         connectParticles(particles[i], particles[j]);
       }
     }
-
     if (mouse.x !== null && mouse.y !== null) {
       for (let p of particles) {
         connectToMouse(p);
       }
     }
-
     requestAnimationFrame(animate);
   }
 
@@ -147,58 +133,49 @@ if (canvas) {
   animate();
 }
 
-//Anim titres
-if (document.querySelector('.title--big')) {
-  gsap.from(".title--big", {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: "power3.out",
-  });
-}
+// === Animations GSAP ===
+gsap.from(".title--big", {
+  duration: 1,
+  y: 50,
+  opacity: 0,
+  ease: "power3.out",
+});
 
-if (document.querySelector('.p--center__big')) {
-  gsap.from(".p--center__big", {
-    delay: 0.3,
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: "power3.out",
-  });
-}
+gsap.from(".p--center__big", {
+  delay: 0.3,
+  duration: 1,
+  y: 50,
+  opacity: 0,
+  ease: "power3.out",
+});
 
-//Anim pres projets
-if (document.querySelector('.ligne-haut')) {
-  gsap.from(".ligne-haut", {
-    scrollTrigger: {
-      trigger: ".ligne-haut",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    },
-    duration: 1,
-    xPercent: 100,
-    opacity: 0,
-    ease: "power3.out",
-  });
-}
+// === Animation lignes page projets ===
+gsap.from(".ligne-haut", {
+  scrollTrigger: {
+    trigger: ".ligne-haut",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  duration: 1,
+  xPercent: 100,
+  opacity: 0,
+  ease: "power3.out",
+});
 
-if (document.querySelector('.ligne-bas')) {
-  gsap.from(".ligne-bas", {
-    scrollTrigger: {
-      trigger: ".ligne-bas",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    },
-    duration: 1,
-    xPercent: -100,
-    opacity: 0,
-    ease: "power3.out",
-  });
-}
+gsap.from(".ligne-bas", {
+  scrollTrigger: {
+    trigger: ".ligne-bas",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  duration: 1,
+  xPercent: -100,
+  opacity: 0,
+  ease: "power3.out",
+});
 
-//Anim Invit scroll
+// === Scroll Down (scroll vers section suivante) ===
 const scrollDown = document.querySelector('.scroll-down');
-
 if (scrollDown) {
   window.addEventListener('scroll', () => {
     scrollDown.classList.toggle('hidden', window.scrollY > 150);
@@ -212,7 +189,7 @@ if (scrollDown) {
   });
 }
 
-//Menu
+// === Menu burger mobile ===
 const menuBtn = document.querySelector(".menu__btn");
 const links = document.querySelectorAll(".menu__link");
 const menuElements = document.querySelectorAll(".menu--li");
@@ -229,7 +206,7 @@ if (menuBtn) menuBtn.addEventListener("click", toggleMenu);
 menuElements.forEach(el => el.addEventListener("click", toggleMenu));
 links.forEach(link => link.addEventListener("click", toggleMenu));
 
-// Détection du nom de fichier (aide de ChatGPT pour éviter erreur console sur les autres pages)
+// === Hide menu on scroll (sauf pages spécifiques) ===
 const fileName = window.location.pathname.split("/").pop();
 let lastScrollTop = 0;
 
@@ -243,7 +220,7 @@ if (fileName !== "designFiction.html" && fileName !== "pageTemoin.html") {
   });
 }
 
-//Back to top
+// === Bouton retour en haut ===
 const backToTopButton = document.querySelector('.backToTop__cs');
 if (backToTopButton) {
   backToTopButton.addEventListener('click', () => {
@@ -251,7 +228,7 @@ if (backToTopButton) {
   });
 }
 
-//Nav verticale
+// === Navigation verticale (scrollspy) ===
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-vertical a");
 
@@ -260,7 +237,8 @@ if (sections.length > 0 && navLinks.length > 0) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(link => link.classList.remove("active"));
-        document.querySelectorAll(`.nav-vertical a[href="#${entry.target.id}"]`).forEach(link => link.classList.add("active"));
+        document.querySelectorAll(`.nav-vertical a[href="#${entry.target.id}"]`)
+          .forEach(link => link.classList.add("active"));
       }
     });
   }, { threshold: 0.5 });
@@ -268,12 +246,12 @@ if (sections.length > 0 && navLinks.length > 0) {
   sections.forEach(section => observer.observe(section));
 }
 
-//Force refresh ScrollTrigger après load (Aide ChatGPT)
+// === Refresh ScrollTrigger à la fin du chargement ===
 window.addEventListener('load', () => {
   ScrollTrigger.refresh();
 });
 
-//Anim textes df - page témoin df
+// === Animation de texte sur scroll (.animate) ===
 gsap.utils.toArray('.animate').forEach(elem => {
   gsap.from(elem, {
     opacity: 0,
@@ -288,13 +266,13 @@ gsap.utils.toArray('.animate').forEach(elem => {
   });
 });
 
-//Carousel img df
+// === Carousel (page design fiction) ===
 const images = document.querySelectorAll('.carousel-img');
 const dots = Array.from(document.querySelectorAll('.dot'));
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 
-if (images.length !== 0 && dots.length !== 0 && prevBtn && nextBtn) {
+if (images.length && dots.length && prevBtn && nextBtn) {
   let index = 0;
 
   function updateView() {
@@ -322,9 +300,29 @@ if (images.length !== 0 && dots.length !== 0 && prevBtn && nextBtn) {
   updateView();
 }
 
-document.querySelectorAll('.point').forEach(point => {
-  point.addEventListener('click', () => {
-    const popup = point.nextElementSibling;
+// === Popups interactifs sur image (points cliquables) ===
+const wrappers = document.querySelectorAll('.wrapper');
+const popups = document.querySelectorAll('.popup');
+
+wrappers.forEach(wrapper => {
+  const point = wrapper.querySelector('.point');
+  const popup = wrapper.querySelector('.popup');
+
+  point.addEventListener('click', (e) => {
+    e.stopPropagation();
+    popups.forEach(p => {
+      if (p !== popup) p.classList.remove('active');
+    });
     popup.classList.toggle('active');
   });
+});
+
+// Fermer tous les popups si on clique ailleurs
+document.addEventListener('click', () => {
+  popups.forEach(popup => popup.classList.remove('active'));
+});
+
+// Ne pas fermer le popup si on clique à l’intérieur
+popups.forEach(popup => {
+  popup.addEventListener('click', e => e.stopPropagation());
 });

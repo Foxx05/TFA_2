@@ -556,86 +556,85 @@ button:hover{
 
 //ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus 
 
-.section--imgplus{
-    display: flex;
-    justify-content: center;
-}
+ .section--imgplus {
+      display: flex;
+      justify-content: center;
+    }
 
-.container1{
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background-image: url('../assets/images/img_df/img_th.webp');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+    .container1 {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background-image: url('../assets/images/img_df/img_th.webp'); /* ton image de fond */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
 
-/* Groupe point + popup */
-.wrapper{
-    position: absolute;
-    width: 80px;   /* zone de survol */
-    height: 80px;
-}
+    .wrapper {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+    }
 
-.point{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background: #f4b942;
-    border-radius: 50%;
-    cursor: pointer;
-}
+    .point {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 30px;
+      background-color: #f4b942;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.popup{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 300px;
-    height: 300px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #121212;
-    color: #fff;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: auto;
-    z-index: 10;
-    border: 3px solid #f4b942;
-}
+    .point:hover{
+        background-color: #c0c0c0;
+    }
 
-.popup.active{
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
+    .popup {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      width: 300px;
+      height: 300px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #121212;
+      color: #fff;
+      opacity: 0;
+      transform: var(--popup-translate, translate(0, 0)) scale(0.9);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+      border: 3px solid #f4b942;
+    }
 
-.popup img{
-    width: 100%;
-    height: auto;      /* hauteur auto pour ne pas déformer l'image */
-    max-height: 200px; /* laisse de la place au texte */
-    object-fit: cover;
-}
+    .popup.active {
+      opacity: 1;
+      transform: var(--popup-translate, translate(0, 0)) scale(1);
+      pointer-events: auto;
+    }
 
-.popup-text{
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
-    margin-bottom: 10px;
-    font-size: 18px;
-    background-color: transparent;
-}
+    .popup img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+    }
 
-.wrapper:hover .popup, .popup:hover{
-    opacity: 1;
-    transform: scale(1) translate(0, 0);
-}
+    .popup-text {
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      margin-bottom: 10px;
+      font-size: 18px;
+      background-color: transparent;
+    }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
 
