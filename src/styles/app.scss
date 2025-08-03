@@ -516,8 +516,8 @@ span{
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #ccc;
-    cursor: pointer; /* Ajout */.3s;
+    background-color: #c2bbbb;
+    cursor: pointer;
 }
 
 .dot:hover{
@@ -525,7 +525,7 @@ span{
 }
 
 .dot.active{
-    background-color: #333;
+    background-color: #f4b942;
 }
 
 button{
@@ -556,85 +556,84 @@ button:hover{
 //ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus 
 
 .section--imgplus{
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .container1{
-  position: relative;
-filter: drop-shadow(0 0 2px #fafafa);
-  width: 400px;
-  height: 400px;
-  background-image: url('../assets/images/img_df/img_th.webp');
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-image: url('../assets/images/img_df/img_th.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 /* Groupe point + popup */
 .wrapper{
-  position: absolute;
-  width: 80px;   /* zone de survol */
-  height: 80px;
+    position: absolute;
+    width: 80px;   /* zone de survol */
+    height: 80px;
 }
 
 .point{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  background: #f4b942;
-  border-radius: 50%;
-  cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #f4b942;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .popup{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #121212;
-  color: #fff;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: auto;
-  z-index: 10;
-  border: 3px solid #f4b942;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #121212;
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: auto;
+    z-index: 10;
+    border: 3px solid #f4b942;
 }
 
 .popup.active{
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
 }
 
 .popup img{
-  width: 100%;
-  height: auto;      /* hauteur auto pour ne pas déformer l'image */
-  max-height: 200px; /* laisse de la place au texte */
-  object-fit: cover;
+    width: 100%;
+    height: auto;      /* hauteur auto pour ne pas déformer l'image */
+    max-height: 200px; /* laisse de la place au texte */
+    object-fit: cover;
 }
 
 .popup-text{
-  text-align: center;
-  white-space: normal;
-  word-break: break-word;
-  margin-bottom: 10px;
-  font-size: 18px;
-  background-color: transparent;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+    margin-bottom: 10px;
+    font-size: 18px;
+    background-color: transparent;
 }
 
 .wrapper:hover .popup, .popup:hover{
-  opacity: 1;
-  transform: scale(1) translate(0, 0);
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
 }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
