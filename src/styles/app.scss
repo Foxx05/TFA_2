@@ -1207,129 +1207,128 @@ button:hover{
     }
 
 //ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus 
-    .section--imgplus {
-    display: flex;
-    justify-content: center;
+    .section--imgplus{
+        display: flex;
+        justify-content: center;
     }
 
     /* Conteneur avec image de fond */
-    .container1 {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background-image: url('../assets/images/img_df/img_th.webp');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    .container1{
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background-image: url('../assets/images/img_df/img_th.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
     }
 
     /* Wrapper autour du point et du popup */
-    .wrapper {
-    position: absolute;
-    width: 80px;
-    height: 80px;
+    .wrapper{
+        position: absolute;
+        width: 80px;
+        height: 80px;
     }
 
     /* Le point cliquable/survolable */
-    .point {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background-color: #f4b942;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    z-index: 2;
+    .point{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        background-color: #f4b942;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        z-index: 2;
     }
 
     /* Le popup (masqué par défaut) */
-    .popup {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 300px;
-    height: 300px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #121212;
-    opacity: 0;
-    transform: var(--popup-translate, translate(0, 0)) scale(0.9);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    z-index: 10;
-    border: 3px solid #f4b942;
+    .popup{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #121212;
+        opacity: 0;
+        transform: var(--popup-translate, translate(0, 0)) scale(0.9);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+        z-index: 10;
+        border: 3px solid #f4b942;
     }
 
-    /* Affiche le popup au hover du point */
-    .point:hover + .popup {
-    opacity: 1;
-    transform: var(--popup-translate, translate(0, 0)) scale(1);
-    pointer-events: auto;
+    /* Affiche popup si hover */
+    .point:hover + .popup{
+        opacity: 1;
+        transform: var(--popup-translate, translate(0, 0)) scale(1);
+        pointer-events: auto;
     }
 
-    /* Image dans le popup */
-    .popup img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
+    .popup img{
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
     }
 
-    /* Texte du popup */
-    .popup-text {
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
-    margin-bottom: 10px;
-    font-size: 18px;
-    background-color: transparent;
-    }
-    .point {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background-color: #f4b942;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .popup-text{
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        margin-bottom: 10px;
+        font-size: 18px;
+        background-color: transparent;
     }
 
-    /* Halo flou permanent autour du point */
-    .point::before {
+    .point{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        background-color: #f4b942;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Halo autour point */
+    .point::before{
         content: '';
         position: absolute;
         width: 60px;
         height: 60px;
         border-radius: 50%;
         background: radial-gradient(
-            rgba(244, 185, 66, 0.4) 0%,
-            rgba(244, 185, 66, 0.2) 40%,
-            rgba(244, 185, 66, 0) 100%
+            rgba(244, 185, 66, 0.4) 0%, /*centre */
+            rgba(244, 185, 66, 0.2) 40%, /*milieu */
+            rgba(244, 185, 66, 0) 100% /*bord ext*/
         );
         filter: blur(12px);
         z-index: -1;
         animation: pulseGlow 2s infinite ease-in-out;
     }
 
-    /* Animation douce pour le halo */
-    @keyframes pulseGlow {
-        0%, 100% {
+    /* Animation halo */
+    @keyframes pulseGlow{
+        0%, 100%{
             transform: scale(1);
             opacity: 0.8;
         }
-        50% {
+        50%{
             transform: scale(1.15);
             opacity: 1;
         }
