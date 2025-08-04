@@ -86,8 +86,8 @@
         
     </section>
     <section id="section-3" class="section gridcol gridpc">
-      <h2 class="title__cs title--col1">3. Mise en commun</h2>
-      <p class="p--col1col5"><span>Une mise en commun des résultats entre les groupes a permis de tirer des conclusions plus globales, pour aménager au mieux le local en fonction des besoins, non plus de 20 étudiants mais de 120.</span> En effet, plus le groupe cible est vaste, plus les résultats sont représentatifs de&nbsp;leurs&nbsp;attentes.</p>
+      <h2 class="title__cs title--col2">3. Mise en commun</h2>
+      <p class="p--col2col6"><span>Une mise en commun des résultats entre les groupes a permis de tirer des conclusions plus globales, pour aménager au mieux le local en fonction des besoins, non plus de 20 étudiants mais de 120.</span> En effet, plus le groupe cible est vaste, plus les résultats sont représentatifs de&nbsp;leurs&nbsp;attentes.</p>
     </section>
 
     <section id="section-4" class="section gridcol gridpc">
@@ -100,13 +100,37 @@
     </section>
     <section id="section-5" class="section gridcol gridpc">
       <h2 class="title__cs title--col2">5. Quelques&nbsp;plans&nbsp;et photos&nbsp;modifiées</h2>
-      <p class="p--col2col6">Différents plans en vue de dessus ont été réalisés (sur Figma), en variant la disposition du mobilier. Ces plans ont ensuite été proposés au reste de la classe, ce qui a permis de recueillir des retours sur l’agencement jugé le plus cohérent en fonction de l’espace disponible. <span>Nous avons finalement retenu le plan le plus à gauche de&nbsp;la&nbsp;photo.</span></p>
-      <img class="img--plan2d img--pos" src="assets/images/img_prux/plan2d.webp" srcset="assets/images/img_prux/@2x/plan2d@2x.webp  2x" alt="Image montrant les différents plans du local qui on permis de réfléchir à l'agencement du mobilier.">
+      <p class="p--col2col6">Différents plans en vue de dessus ont été réalisés sur Figma, en variant la disposition du mobilier. Ces plans ont ensuite été proposés au reste de la classe, ce qui a permis de recueillir des retours sur l’agencement jugé le plus cohérent en fonction de l’espace disponible. <span>Nous avons finalement retenu le plan le plus à gauche de&nbsp;la&nbsp;photo.</span></p>
       <p class="p--col2col6"><span>Nous avons retouché les photos en fonction du plan choisi.</span> Ces photos retouchées (montrant les meubles et leur disposition) nous ont permises de nous projeter dans le futur et de voir la classe une&nbsp;fois&nbsp;aménagée.</p>
-      <img class="img--photo1 img--pos" src="assets/images/img_prux/photor1.webp" srcset="assets/images/img_prux/@2x/photor1@2x.webp  2x" alt="Image retouchée, montrant une vue du local, du fond du local vers la porte. Sur la gauche, il y a une table ronde et 4 chaises. Sur la droite, des tables avec des pc sont visibles.">
-      <img class="img--photo2 img--pos" src="assets/images/img_prux/photor2.webp" srcset="assets/images/img_prux/@2x/photor2@2x.webp  2x" alt="Image retouchée, montrant une vue du fond du local. Sur la gauche, il y a une table avec des PC ainsi qu'une armoire métallique. Juste devant la caméra, il y a la même table ronde que sur la photo précédente. Sur droite, une autre tables est occupée par des PC. Dans l'angles des 2 murs, il y a une plante.">
-    </section> 
 
+      <div class="carousel_tot">
+        <div class="carousel">
+          <button id="prev">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+            </svg>
+          </button>
+
+          <div id="square" class="carre">
+            <img src="assets/images/img_prux/photor1.webp" class="carousel-img active" alt="Image 1">
+            <img src="assets/images/img_prux/photor2.webp" class="carousel-img" alt="Image 2">
+            <img src="assets/images/img_prux/plan2d.webp" class="carousel-img" alt="Image 3">
+          </div>
+
+          <button id="next">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="indicators">
+          <div class="dot" id="dot0"></div>
+          <div class="dot" id="dot1"></div>
+          <div class="dot" id="dot2"></div>
+        </div>
+      </div>
+    </section> 
 
     <section id="section-6" class="section gridcol">
       <h2 class="title__cs title--col3">6. Une&nbsp;étude de&nbsp;marché</h2>
