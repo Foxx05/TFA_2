@@ -1221,6 +1221,7 @@ button:hover{
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
+
     }
 
     /* Wrapper autour du point et du popup */
@@ -1277,6 +1278,7 @@ button:hover{
         height: auto;
         max-height: 200px;
         object-fit: cover;
+        border-radius: 0;
     }
 
     .popup-text{
@@ -1309,12 +1311,12 @@ button:hover{
     .point::before{
         content: '';
         position: absolute;
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         background: radial-gradient(
             rgba(244, 185, 66, 0.4) 0%, /*centre */
-            rgba(244, 185, 66, 0.2) 40%, /*milieu */
+            rgba(244, 185, 66, 0.2) 60%, /*milieu */
             rgba(244, 185, 66, 0) 100% /*bord ext*/
         );
         filter: blur(12px);
@@ -1326,7 +1328,7 @@ button:hover{
     @keyframes pulseGlow{
         0%, 100%{
             transform: scale(1);
-            opacity: 0.8;
+            opacity: 0.5;
         }
         50%{
             transform: scale(1.15);
