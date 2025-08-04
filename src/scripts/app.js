@@ -17,7 +17,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseover", (e) => {
-  const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button']");
+  const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button'], .point");
   const isScrollDown = e.target.closest(".scroll-down");
   cursor.classList.toggle("cursor-hover", Boolean(isInteractive || isScrollDown));
 });
@@ -134,34 +134,41 @@ if (canvas) {
 }
 
 // === Animations GSAP ===
-gsap.from(".title--big", {
-  duration: 1,
-  y: 50,
-  opacity: 0,
-  ease: "power3.out",
-});
+if (document.querySelector(".title--big")) {
+  gsap.from(".title--big", {
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: "power3.out",
+  });
+}
 
-gsap.from(".p--center__big", {
-  delay: 0.3,
-  duration: 1,
-  y: 50,
-  opacity: 0,
-  ease: "power3.out",
-});
+if (document.querySelector(".p--center__big")) {
+  gsap.from(".p--center__big", {
+    delay: 0.3,
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: "power3.out",
+  });
+}
 
 // === Animation lignes page projets ===
-gsap.from(".ligne-haut", {
-  scrollTrigger: {
-    trigger: ".ligne-haut",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  },
-  duration: 1,
-  xPercent: 100,
-  opacity: 0,
-  ease: "power3.out",
-});
+if (document.querySelector(".ligne-haut")) {
+  gsap.from(".ligne-haut", {
+    scrollTrigger: {
+      trigger: ".ligne-haut",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    duration: 1,
+    xPercent: 100,
+    opacity: 0,
+    ease: "power3.out",
+  });
+}
 
+if (document.querySelector(".ligne-bas")) {
 gsap.from(".ligne-bas", {
   scrollTrigger: {
     trigger: ".ligne-bas",
@@ -173,6 +180,7 @@ gsap.from(".ligne-bas", {
   opacity: 0,
   ease: "power3.out",
 });
+}
 
 // === Scroll Down (scroll vers section suivante) ===
 const scrollDown = document.querySelector('.scroll-down');
