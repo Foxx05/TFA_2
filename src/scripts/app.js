@@ -17,7 +17,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseover", (e) => {
-  const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button'], .point");
+  const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button']");
   const isScrollDown = e.target.closest(".scroll-down");
   cursor.classList.toggle("cursor-hover", Boolean(isInteractive || isScrollDown));
 });
@@ -274,7 +274,7 @@ gsap.utils.toArray('.animate').forEach(elem => {
   });
 });
 
-// === Carousel (page design fiction) ===
+// === Carousel ===
 const images = document.querySelectorAll('.carousel-img');
 const dots = Array.from(document.querySelectorAll('.dot'));
 const prevBtn = document.getElementById('prev');
@@ -308,29 +308,3 @@ if (images.length && dots.length && prevBtn && nextBtn) {
   updateView();
 }
 
-// === Popups interactifs sur image (points cliquables) ===
-const wrappers = document.querySelectorAll('.wrapper');
-const popups = document.querySelectorAll('.popup');
-
-wrappers.forEach(wrapper => {
-  const point = wrapper.querySelector('.point');
-  const popup = wrapper.querySelector('.popup');
-
-  point.addEventListener('click', (e) => {
-    e.stopPropagation();
-    popups.forEach(p => {
-      if (p !== popup) p.classList.remove('active');
-    });
-    popup.classList.toggle('active');
-  });
-});
-
-// Fermer tous les popups si on clique ailleurs
-document.addEventListener('click', () => {
-  popups.forEach(popup => popup.classList.remove('active'));
-});
-
-// Ne pas fermer le popup si on clique à l’intérieur
-popups.forEach(popup => {
-  popup.addEventListener('click', e => e.stopPropagation());
-});
