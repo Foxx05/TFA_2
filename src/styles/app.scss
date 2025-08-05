@@ -561,7 +561,14 @@ button:hover{
     fill: #000;
 }
 
-
+.detail_cam{
+    margin-top: clamp(1.125rem, 1.0764rem + 0.2222vw, 1.25rem);
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // case study
 
@@ -1236,7 +1243,7 @@ button:hover{
         grid-column: 3/-2;
         margin-bottom: 73px;
     }
-    .img--capt{
+    .img--capt, .detail_cam{
         display: none;
     }
 

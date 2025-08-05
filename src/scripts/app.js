@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const body = document.body;
 
 // === Curseur personnalisé ===
+if (document.querySelector(".custom-cursor")) {
 const cursor = document.querySelector(".custom-cursor");
 
 document.addEventListener("mousemove", (e) => {
@@ -21,7 +22,7 @@ document.addEventListener("mouseover", (e) => {
   const isScrollDown = e.target.closest(".scroll-down");
   cursor.classList.toggle("cursor-hover", Boolean(isInteractive || isScrollDown));
 });
-
+}
 if (document.querySelector(".custom-cursor2")) {
 const cursor = document.querySelector(".custom-cursor2");
 
@@ -324,45 +325,8 @@ if (images.length && dots.length && prevBtn && nextBtn) {
   updateView();
 }
 if (document.querySelector(".audio-btn")) {
-  // let currentAudio = null;
-  // let currentButton = null;
 
-  // document.querySelectorAll(".audio-btn").forEach(button => {
-  //   button.addEventListener("click", () => {
-  //     const audioSrc = button.getAttribute("data-audio");
-
-  //     // Si on clique sur le même bouton pendant que l'audio joue
-  //     if (currentAudio && currentButton === button) {
-  //       currentAudio.pause();
-  //       currentAudio.currentTime = 0;
-  //       currentAudio = null;
-  //       currentButton = null;
-  //       return;
-  //     }
-
-  //     // Si un autre audio est déjà en cours, on le stoppe
-  //     if (currentAudio) {
-  //       currentAudio.pause();
-  //       currentAudio.currentTime = 0;
-  //     }
-
-  //     // Lecture du nouvel audio
-  //     const audio = new Audio(audioSrc);
-  //     audio.play();
-
-  //     // Mise à jour des références
-  //     currentAudio = audio;
-  //     currentButton = button;
-
-  //     // Quand l'audio se termine, on remet à zéro
-  //     audio.addEventListener("ended", () => {
-  //       currentAudio = null;
-  //       currentButton = null;
-  //     });
-  //   });
-  // });
-
-    let currentAudio = null;
+  let currentAudio = null;
   let currentButton = null;
 
   document.querySelectorAll(".audio-btn").forEach(button => {
