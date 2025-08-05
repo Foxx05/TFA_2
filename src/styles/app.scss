@@ -468,6 +468,8 @@ span{
     margin-bottom: 40px;
 }
 
+
+
 .carousel_tot{
     grid-column: 2/-2;
     display: flex;
@@ -1009,11 +1011,11 @@ button:hover{
         filter: drop-shadow(0 0 5px #fafafa);
     }
 
-    .img--capt{
+    .img--capt, .detail_cam{
         grid-column: 2/-2;
     }
     
-    .img--sent, .btn--temoins, .btn--temoins2{
+    .img--sent, .img--temoins, .btn--temoins, .btn--temoins2{
         grid-column: 3/-3;
     }
 
@@ -1251,13 +1253,28 @@ button:hover{
         background: none;
         border: none;
         cursor: pointer;
-        margin-left: 8px;
         vertical-align: middle;
+        padding: 0;
+    }
+
+    .audio-btn:hover, .audio-btn:focus{
+        background: none;
+        outline: none;
+        box-shadow: none;
     }
 
     .audio-btn img{
         width: 64px;
         height: 64px;
+        transition: filter 0.3s ease, transform 0.2s ease;
+    }
+
+    .audio-btn.is-playing img{
+        animation: pulse 1s infinite;
+    }
+
+    .audio-btn:hover img{
+        filter: brightness(1.4) hue-rotate(-20deg);
     }
 
     .audio-btn.is-playing img{
