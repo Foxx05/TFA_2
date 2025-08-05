@@ -1038,7 +1038,7 @@ button:hover{
   position: fixed;
   width: 64px;
   height: 64px;
-  background-image: url("../assets/images/img_df/2820434_corrected_64x64_rotated.svg"); /* ou version base64 */
+  background-image: url("../assets/images/img_df/bird_icon.svg"); /* ou version base64 */
   background-size: contain;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -1239,6 +1239,35 @@ button:hover{
     .img--capt{
         display: none;
     }
+
+    .audio-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+
+    .audio-btn img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .audio-btn.is-playing img {
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    }
+
 //ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus 
     .section--imgplus{
         display: flex;

@@ -323,4 +323,84 @@ if (images.length && dots.length && prevBtn && nextBtn) {
 
   updateView();
 }
+if (document.querySelector(".audio-btn")) {
+  // let currentAudio = null;
+  // let currentButton = null;
 
+  // document.querySelectorAll(".audio-btn").forEach(button => {
+  //   button.addEventListener("click", () => {
+  //     const audioSrc = button.getAttribute("data-audio");
+
+  //     // Si on clique sur le même bouton pendant que l'audio joue
+  //     if (currentAudio && currentButton === button) {
+  //       currentAudio.pause();
+  //       currentAudio.currentTime = 0;
+  //       currentAudio = null;
+  //       currentButton = null;
+  //       return;
+  //     }
+
+  //     // Si un autre audio est déjà en cours, on le stoppe
+  //     if (currentAudio) {
+  //       currentAudio.pause();
+  //       currentAudio.currentTime = 0;
+  //     }
+
+  //     // Lecture du nouvel audio
+  //     const audio = new Audio(audioSrc);
+  //     audio.play();
+
+  //     // Mise à jour des références
+  //     currentAudio = audio;
+  //     currentButton = button;
+
+  //     // Quand l'audio se termine, on remet à zéro
+  //     audio.addEventListener("ended", () => {
+  //       currentAudio = null;
+  //       currentButton = null;
+  //     });
+  //   });
+  // });
+
+    let currentAudio = null;
+  let currentButton = null;
+
+  document.querySelectorAll(".audio-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const audioSrc = button.getAttribute("data-audio");
+
+      // Si on reclique sur le bouton en cours : stop
+      if (currentAudio && currentButton === button) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        button.classList.remove("is-playing");
+        currentAudio = null;
+        currentButton = null;
+        return;
+      }
+
+      // Si un autre son est en cours : stop + retire l’état visuel
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentButton.classList.remove("is-playing");
+      }
+
+      // Nouvelle lecture
+      const audio = new Audio(audioSrc);
+      audio.play();
+
+      // Ajouter état visuel
+      button.classList.add("is-playing");
+
+      currentAudio = audio;
+      currentButton = button;
+
+      audio.addEventListener("ended", () => {
+        button.classList.remove("is-playing");
+        currentAudio = null;
+        currentButton = null;
+      });
+    });
+  });
+}
