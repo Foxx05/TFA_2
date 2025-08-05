@@ -1034,18 +1034,18 @@ button:hover{
     .custom-cursor.cursor-hover{
         transform: translate(-50%, -50%) scale(2); /* Grossissement au survol */
     }
-.custom-cursor2 {
-  position: fixed;
-  width: 64px;
-  height: 64px;
-  background-image: url("../assets/images/img_df/bird_icon.svg"); /* ou version base64 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease;
-  z-index: 9999;
-}
+    .custom-cursor2{
+        position: fixed;
+        width: 64px;
+        height: 64px;
+        background-image: url("../assets/images/img_df/bird_icon.svg"); /* ou version base64 */
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease;
+        z-index: 9999;
+    }
 
     .custom-cursor2.cursor-hover{
         transform: translate(-50%, -50%) scale(2); /* Grossissement au survol */
@@ -1240,7 +1240,7 @@ button:hover{
         display: none;
     }
 
-    .audio-btn {
+    .audio-btn{
         background: none;
         border: none;
         cursor: pointer;
@@ -1248,21 +1248,21 @@ button:hover{
         vertical-align: middle;
     }
 
-    .audio-btn img {
+    .audio-btn img{
         width: 64px;
         height: 64px;
     }
 
-    .audio-btn.is-playing img {
+    .audio-btn.is-playing img{
         animation: pulse 1s infinite;
     }
 
-    @keyframes pulse {
-    0%, 100% {
+    @keyframes pulse{
+    0%, 100%{
         transform: scale(1);
         opacity: 1;
     }
-    50% {
+    50%{
         transform: scale(1.2);
         opacity: 0.8;
     }
