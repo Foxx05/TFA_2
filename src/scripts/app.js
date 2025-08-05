@@ -22,6 +22,22 @@ document.addEventListener("mouseover", (e) => {
   cursor.classList.toggle("cursor-hover", Boolean(isInteractive || isScrollDown));
 });
 
+if (document.querySelector(".custom-cursor2")) {
+const cursor = document.querySelector(".custom-cursor2");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+document.addEventListener("mouseover", (e) => {
+  const isInteractive = e.target.closest("a, button, input, textarea, select, [role='button']");
+  const isScrollDown = e.target.closest(".scroll-down");
+  cursor.classList.toggle("cursor-hover", Boolean(isInteractive || isScrollDown));
+});
+}
+
+
 // === Fond animé : particules ===
 const canvas = document.getElementById("particules_bg");
 if (canvas) {

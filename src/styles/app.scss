@@ -1034,7 +1034,23 @@ button:hover{
     .custom-cursor.cursor-hover{
         transform: translate(-50%, -50%) scale(2); /* Grossissement au survol */
     }
-    
+.custom-cursor2 {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  background-image: url("../assets/images/img_df/2820434_corrected_64x64_rotated.svg"); /* ou version base64 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+  z-index: 9999;
+}
+
+    .custom-cursor2.cursor-hover{
+        transform: translate(-50%, -50%) scale(2); /* Grossissement au survol */
+    }
+
     .menu{
         display: flex;
         flex-direction: row;
