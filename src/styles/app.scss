@@ -589,7 +589,7 @@ button:hover{
     transform: translate(87%,-50%);
     transition:all 0.3s;
     z-index: 10;
-    background-color: #42585D;
+    background-color: #2b3553;
     padding: 10px;
     border-radius: 10px;
 }
@@ -602,7 +602,7 @@ button:hover{
     font-weight: 600;
     text-decoration: none;
     color:#fafafa;
-    background-color: #42585D;
+    background-color: #2b3553;
     padding: 5px;
 }
 
@@ -1181,9 +1181,9 @@ button:hover{
         grid-column: 2/6;
     }
 
-    .p--col2fin{
+    .p--col3col8{
         margin: 0px;
-        grid-column: 2/-1;
+        grid-column: 3/-1;
     }
 
     .p--col3col6{
