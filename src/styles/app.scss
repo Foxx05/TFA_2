@@ -444,6 +444,9 @@ span{
     text-decoration: none;
     text-align: center;
 }
+.btn--temoins{
+    margin-bottom: clamp(1.125rem, 1.0764rem + 0.2222vw, 1.25rem);
+}
 
 .btn--temoins:hover, .btn--temoins2:hover{
     background-color: #505050;
@@ -527,6 +530,10 @@ span{
 
 .dot.active{
     background-color: #f4b942;
+}
+
+.section--imgplus{
+    display: none;
 }
 
 button{
@@ -994,7 +1001,15 @@ button:hover{
     .img--falcon__cs{
         filter: drop-shadow(0 0 5px #fafafa);
     }
- 
+
+    .img--capt{
+        grid-column: 2/-2;
+    }
+    
+    .img--sent, .btn--temoins, .btn--temoins2{
+        grid-column: 3/-3;
+    }
+
 }
 @media (min-width: 1250px){
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // portfolio
@@ -1205,7 +1220,9 @@ button:hover{
         grid-column: 3/-2;
         margin-bottom: 73px;
     }
-
+    .img--capt{
+        display: none;
+    }
 //ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus ImgPLus 
     .section--imgplus{
         display: flex;
