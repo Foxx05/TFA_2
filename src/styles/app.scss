@@ -556,20 +556,19 @@ button{
     justify-content: center;
     border: none;
     border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
+    background-color: #f4b942;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all .3s;
 }
 
 button:hover{
-    background-color: #a1a1a1;
+    background-color: #ff7300;
 }
 
 .icon{
     width: 32px;
     height: 32px;
-    fill: #000;
+    fill: #1d1d1d;
 }
 
 .detail_cam{
@@ -712,10 +711,9 @@ button:hover{
 .foot__cs{
     display: grid; 
     column-gap: 16px;
-    background: linear-gradient(0.25turn, #56767e, #927b4d);
+    background: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%);
     height: 300px;
     margin-top: 25px;
-    clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
 }
 
 .footer--liste__cs{
@@ -730,14 +728,14 @@ button:hover{
 }
 
 .btn--foot{
-    color: #0d0d0d;
+    color: #f4b942;
     transition: all 0.3s;
     cursor: pointer;
     font-weight: 700;
 }
 
 .btn--foot:hover{
-    color: #f4b942;
+    color: #ff7300;
 }
 
 .backToTop__cs{
@@ -748,20 +746,18 @@ button:hover{
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: #42585D;
-    color: #fafafa;
+    background-color: #f4b942;
     border: none;
     border-radius: 50%;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(255, 174, 0, 0.8);
     transition: opacity 0.3s, transform 0.3s;
     display:  flex;
 }
 
 .backToTop__cs:hover{
-    background-color: #56767e;
+    background-color: #ff7300;
     transform: scale(1.1);
 }
 
