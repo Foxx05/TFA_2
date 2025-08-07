@@ -449,8 +449,8 @@ span{
 }
 
 .btn--temoins:hover, .btn--temoins2:hover{
-    background-color: #505050;
-    color: #f4b942;
+    background-color: #f4b942;
+    color: #121212;
 }
 
 .img--full{
@@ -556,19 +556,19 @@ button{
     justify-content: center;
     border: none;
     border-radius: 50%;
-    background-color: #f4b942;
+    background-color: #fafafa;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all .3s;
 }
 
 button:hover{
-    background-color: #ff7300;
+    background-color: #f4b942;
 }
 
 .icon{
     width: 32px;
     height: 32px;
-    fill: #1d1d1d;
+    fill: #121212;
 }
 
 .detail_cam{
